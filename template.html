@@ -31,6 +31,7 @@ h1{margin:0;font-size:clamp(34px,7vw,56px);line-height:1.1;letter-spacing:-.03em
 .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:18px 0 12px}
 .chips,.nav{display:flex;gap:6px;flex-wrap:wrap}
 .chip,.nav button{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:6px 14px}
+.sep{width:10px}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .nav button{border-radius:8px;min-width:40px}
 
@@ -139,12 +140,15 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
 
 let view = {y: T.getFullYear(), m: T.getMonth()};
 let region = '전체';
+let org = '전체';
 const byId = Object.fromEntries(DATA.map(r => [r.id, r]));
-const shown = () => DATA.filter(r => region === '전체' || r.region === region);
+const shown = () => DATA.filter(r => (region === '전체' || r.region === region) && (org === '전체' || r.org === org));
 
 function renderChips(){
-  $('#chips').innerHTML = ['전체','서울','경기','인천'].map(n =>
-    `<button class="chip" data-r="${n}" aria-pressed="${n === region}">${n}</button>`).join('');
+  const btn = (k, v, cur) => `<button class="chip" data-${k}="${v}" aria-pressed="${v === cur}">${v}</button>`;
+  $('#chips').innerHTML = ['전체','서울','경기','인천'].map(n => btn('r', n, region)).join('')
+    + '<span class="sep"></span>'
+    + ['전체','LH','SH'].map(n => btn('o', n, org)).join('');
 }
 
 function renderNext(){
@@ -187,7 +191,7 @@ function renderList(){
     const dd = r.start ? `<div class="dd${days(TODAY, r.start) >= 0 && days(TODAY, r.start) <= 1 ? ' soon' : ''}">${ddText(r)}<small>접수 시작</small></div>`
                        : `<div class="dd"><small>일정 확인</small></div>`;
     const per = r.start ? `${r.start} ~ ${r.end || '?'}` : `공고일 ${r.posted || '?'}`;
-    return `<li><button class="row ${c}" data-id="${esc(r.id)}">${dd}<div><div class="t">${esc(r.name)}</div><div class="s">${esc(r.region)} · ${esc(r.type)} · ${per}</div></div></button></li>`;
+    return `<li><button class="row ${c}" data-id="${esc(r.id)}">${dd}<div><div class="t">${esc(r.name)}</div><div class="s">${esc(r.org)} · ${esc(r.region)} · ${esc(r.type)} · ${per}</div></div></button></li>`;
   }).join('') : '<li class="empty">표시할 공고가 없어요. 지역 필터를 바꾸거나 다음 갱신을 기다려 주세요.</li>';
 }
 
@@ -204,7 +208,7 @@ function openDlg(id){
 
 function renderAll(){ renderChips(); renderNext(); renderGrid(); renderList(); }
 document.addEventListener('click', e => {
-  const chip = e.target.closest('.chip'); if (chip){ region = chip.dataset.r; renderAll(); return; }
+  const chip = e.target.closest('.chip'); if (chip){ if (chip.dataset.o) org = chip.dataset.o; else region = chip.dataset.r; renderAll(); return; }
   const ev = e.target.closest('[data-id]'); if (ev) openDlg(ev.dataset.id);
 });
 const shift = n => { const d = new Date(view.y, view.m + n, 1); view = {y: d.getFullYear(), m: d.getMonth()}; renderGrid(); };
@@ -213,7 +217,7 @@ $('#nextm').onclick = () => shift(1);
 $('#now').onclick = () => { view = {y: T.getFullYear(), m: T.getMonth()}; renderGrid(); };
 $('#dX').onclick = () => $('#dlg').close();
 $('#dlg').addEventListener('click', e => { if (e.target === $('#dlg')) $('#dlg').close(); });
-$('#foot').textContent = META.updated ? `마지막 갱신 ${META.updated} (KST) · 데이터 출처: LH 청약플러스(공공데이터포털). 접수 일정은 반드시 공고 원문에서 다시 확인하세요.` : '';
+$('#foot').textContent = META.updated ? `마지막 갱신 ${META.updated} (KST) · 데이터 출처: LH 청약플러스(공공데이터포털), SH(서울주거포털). 접수 일정은 반드시 공고 원문에서 다시 확인하세요.` : '';
 renderAll();
 </script>
 </body>
