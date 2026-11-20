@@ -228,7 +228,7 @@ def notify(subject, html, md):
 def is_match(r):
     if not KEYWORDS:
         return True
-    text = f"{r.get('name', '')} {r.get('type', '')}"
+    text = f"{r.get('org', '')} {r.get('name', '')} {r.get('type', '')}"
     return any(k in text for k in KEYWORDS)
 
 
@@ -326,6 +326,13 @@ def main():
         print(f"SH 목록 {total}건 중 모집중 {n}건 반영")
     except Exception as e:  # SH가 실패해도 LH 결과는 계속 처리
         print(f"SH 수집 실패 (LH는 계속 진행): {type(e).__name__}: {e}")
+
+    try:
+        import youth_notices
+        n, pages = youth_notices.fetch_youth(store, today, DEBUG_DIR if DEBUG else None)
+        print(f"청년안심주택 {pages}건 확인, {n}건 반영")
+    except Exception as e:  # 청년안심주택이 실패해도 나머지는 계속 처리
+        print(f"청년안심주택 수집 실패 (나머지는 계속 진행): {type(e).__name__}: {e}")
 
     cutoff = (today - timedelta(days=KEEP_DAYS)).isoformat()
     store = {k: r for k, r in store.items()
