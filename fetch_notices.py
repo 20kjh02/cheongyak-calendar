@@ -166,15 +166,31 @@ def build_records(key, rows, store):
 
 # ---------- 이메일 ----------
 def send_mail(subject, html):
-    user, pw, to = (os.environ.get(k) for k in ("GMAIL_USER", "GMAIL_APP_PASSWORD", "MAIL_TO"))
+    user, pw, to = (os.environ.get(k, "").strip() for k in ("GMAIL_USER", "GMAIL_APP_PASSWORD", "MAIL_TO"))
+    pw = "".join(pw.split())  # 공백/줄바꿈 제거
     if not (user and pw and to):
         raise RuntimeError("GMAIL_USER / GMAIL_APP_PASSWORD / MAIL_TO 시크릿이 필요합니다.")
     msg = MIMEMultipart("alternative")
     msg["Subject"], msg["From"], msg["To"] = subject, user, to
     msg.attach(MIMEText(html, "html", "utf-8"))
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as s:
-        s.login(user, pw.replace(" ", ""))
-        s.sendmail(user, [to], msg.as_string())
+    last = None
+    for mode in ("ssl465", "starttls587"):  # 한 방식이 막히면 다른 방식으로 재시도
+        try:
+            if mode == "ssl465":
+                server = smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30)
+            else:
+                server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
+                server.starttls()
+            with server as s:
+                s.login(user, pw)
+                s.sendmail(user, [to], msg.as_string())
+            return
+        except smtplib.SMTPAuthenticationError as e:
+            raise RuntimeError(f"Gmail 인증 실패({e.smtp_code}): 앱 비밀번호 또는 GMAIL_USER 확인 필요") from None
+        except (smtplib.SMTPException, OSError) as e:
+            last = f"{mode}: {type(e).__name__}"
+            print(f"  메일 전송 방식 실패 - {last}")
+    raise RuntimeError(f"메일 전송 실패 ({last})")
 
 
 def notice_rows_html(recs):
@@ -231,10 +247,15 @@ def main():
     now = datetime.now(KST)
     today = now.date()
 
+    test_error = None
     if TEST_MAIL:
-        send_mail("[청약알림] 테스트 메일",
-                  f"<p>메일 설정이 정상입니다.</p><p><a href='{CAL_URL}'>청약 캘린더 열기</a></p>")
-        print("테스트 메일 발송 완료")
+        try:
+            send_mail("[청약알림] 테스트 메일",
+                      f"<p>메일 설정이 정상입니다.</p><p><a href='{CAL_URL}'>청약 캘린더 열기</a></p>")
+            print("테스트 메일 발송 완료")
+        except Exception as e:  # 메일이 실패해도 LH 수집 확인은 계속 진행
+            test_error = e
+            print(f"테스트 메일 실패: {e}")
 
     key = unquote(os.environ.get("LH_API_KEY", "").strip())
     if not key:
@@ -249,18 +270,19 @@ def main():
     store = {k: r for k, r in store.items()
              if (r["end"] or r["start"] or r["posted"] or "9999") >= cutoff}
 
-    mail_error = None
-    try:
-        alert(store, today)
-    except Exception as e:  # 메일이 실패해도 캘린더와 데이터는 저장
-        mail_error = e
+    mail_error = test_error
+    if not test_error:
+        try:
+            alert(store, today)
+        except Exception as e:  # 메일이 실패해도 캘린더와 데이터는 저장
+            mail_error = e
 
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
     DATA_FILE.write_text(json.dumps(store, ensure_ascii=False, indent=1), encoding="utf-8")
     render(store, now)
     print(f"저장 완료: {len(store)}건")
     if mail_error:
-        sys.exit(f"메일 발송 실패: {type(mail_error).__name__}: {mail_error}")
+        sys.exit(f"메일 발송 실패: {mail_error}")
 
 
 if __name__ == "__main__":
