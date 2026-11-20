@@ -1,0 +1,521 @@
+
+
+
+
+
+
+
+
+<!-- header -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+	<title>SH공사 | 공공임대 | 임대/분양 정보 | 서울주거포털</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=yes">
+	<meta name="subject" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta name="copyright" content="copyrights Seoul Metropolitan Govement all rights reserved">
+
+	<!-- 네이버 태그 -->
+	<meta name="naver-site-verification" content="c0a5bf432456fb9e6a0b28c4e9dc9c1b5b305a32" />
+	<!-- 구글 태그 -->
+	<meta name="google-site-verification" content="KENmpJabs4hnFG9qDkpyx829A1nlcVG9rgxCdRLuOU4" />
+
+	<!-- SEO -->
+	
+
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="서울주거포털">
+<meta property="og:title" content="SH공사 | 공공임대 | 임대/분양 정보 | 서울주거포털">
+<meta property="og:url" content="https://housing.seoul.go.kr/site/main/sh/publicLease/list?cp=1&amp;supplyType=publicLease">
+<meta property="og:description" content="서울주거포털,SH공사, 서울시 청년월세, 청년 월세지원, 서울주거포털은 서울시의 주거정책 및 분양/임대 정보를 종합적으로 제공합니다. 내게 맞는 서울시의 주거복지 서비스를 찾아보세요.">
+<meta property="og:image" content="https://housing.seoul.go.kr/design/theme/housing/images/logo-600x315.gif?v=2026101201">
+<meta property="og:image:height" content="600">
+<meta property="og:image:width" content="315">
+<meta name="name" content="SH공사 | 공공임대 | 임대/분양 정보 | ">
+<meta name="keywords" content="서울주거포털,SH공사" />
+<meta name="description" content="서울주거포털,SH공사, 서울시 청년월세, 청년 월세지원, 서울주거포털은 서울시의 주거정책 및 분양/임대 정보를 종합적으로 제공합니다. 내게 맞는 서울시의 주거복지 서비스를 찾아보세요." />
+<meta name="robots" content="index,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="image_src" href="https://housing.seoul.go.kr/design/theme/housing/images/logo-600x315.gif?v=2026101201" />
+	<!-- //SEO -->
+
+	<!-- css  -->
+	<link type="text/css" rel="stylesheet" href="/design/common/css/common.css?v=202611111301">
+	<link type="text/css" rel="stylesheet" href="/design/theme/housing/css/common.css?v=202611111301">
+	<!-- css main -->
+	<link rel="stylesheet" type="text/css" href="/design/theme/housing/css/main.css?v=202611092201">
+	<!-- css 서브페이지용 -->
+	<link type="text/css" rel="stylesheet" href="/design/theme/housing/css/sub.css?v=202611092201">
+	<link type="text/css" rel="stylesheet" href="/design/theme/housing/css/sub2020.css?v=202611111301">
+
+	<link type="text/css" rel="stylesheet" href="/design/theme/housing/css/respon.css?v=202611101201">
+
+	<!-- js  -->
+	<link href="/design/common/js/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	<link type="text/css" rel="stylesheet" href="/design/theme/housing/css/aos.css?v=202611021204">
+	
+
+	<!-- 서울 GNB 스크립트 -->
+	<script src="//www.seoul.go.kr/seoulgnb/gnb.js"></script>
+
+	<script src="/design/common/js/jquery.min.js"></script>
+	<script src="/design/common/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+	<script src="/design/common/js/jquery-ui-1.12.1/jquery.ui.datepicker-ko.js"></script>
+	<script src="/design/common/js/common.js?v=202611111301"></script>
+	<script src="/design/common/js/jquery.cookie.js"></script>
+	<script src="/design/common/js/jquery.drags.js"></script>
+	<script src="/assets/plugins/moment/moment.js"></script>
+	<script src="/assets/js/es6-promise.min.js"></script>
+	<script src="/assets/js/es6-promise.auto.min.js"></script>
+
+	
+	<script src="/design/theme/housing/js/flexslider.js" ></script>
+	
+	<script src="/design/theme/housing/js/jquery.bxslider-rahisified.js" ></script>
+	<script src="/design/theme/housing/js/js.js?v=202611030301"></script>
+
+	<script src="/design/theme/housing/js/aos.js?v=202611021204"></script>
+
+	<script src="/design/common/js/printThis.js?v=202611021204"></script>
+	<!-- Global -->
+	<script>
+var GLOBAL = {
+		APP_PATH:'/site/main',
+		
+		API_PATH:'/api',
+		siteId:'asa',
+		menuId:'sh02_01010',
+		SECURITY_TOKEN_NAME:'_sToken',
+		SECURITY_TOKEN:'1795151917549_30da0092371a4d9f8bd1bc6e5b748d62260894563d8c7605f9a8827a508f7e8e',
+		SECURITY_ASYNC_TOKEN_NAME:'',
+		SECURITY_ASYNC_COOKIE_NAME:'',
+		
+		SITE_LOCALE:'ko_KR',
+		MOBILE:false
+		};
+</script>
+
+
+	<script>
+	jQuery(function($){
+		AOS.init();
+	});
+
+	</script>
+	<script>
+	$(function(){
+		//로그인 상태 체크
+		var isLogin = false;
+		var loginId = '';
+		if(loginId != null && loginId != '' ){
+			isLogin = true;
+		}
+
+		$('.new-btn').on('click', function(e){
+			//e.preventDefault();
+			if(!isLogin){
+				alert('로그인 후 작성해 주세요.');
+				return false;
+			}
+		});
+	});
+	</script>
+	<style>
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(5) {clear: both}
+    .sub-menu > .dp2 > li > a {word-break: keep-all;}
+	/*gnb 첫번째 메뉴 위치 수정
+	.gnb > ul > li:nth-of-type(1) .sub-menu {height:500px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2 {float:none;position:absolute;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(1) {top:20px;left:220px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(2) {top:20px;left:410px;}
+    .gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(3) {top:20px;left:600px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(2) {top:80px;right:50px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(4) {top:80px;left:220px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(5) {top:80px;left:410px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(6) {top:80px;left:600px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(7) {top:80px;left:790px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(8) {top:80px;left:980px;}
+	*/
+/*
+	.gnb > ul > li:nth-of-type(1) .sub-menu {height:320px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2 {float:none;position:absolute;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(1) {top:20px;left:220px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(2) {top:80px;left:220px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(3) {top:140px;left:220px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(4) {top:20px;left:410px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(5) {top:20px;left:600px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(6) {top:20px;left:790px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(7) {top:20px;left:980px;}
+
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(5) {top:80px;left:410px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(6) {top:20px;left:600px;}
+	.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2:nth-of-type(7) {top:20px;left:790px;}
+ */
+	@media screen and (max-width: 768px) {
+		.gnb > ul > li:nth-of-type(1) .sub-menu {height:auto;}
+		.gnb > ul > li:nth-of-type(1) .sub-menu > .dp2 {position:relative;top:0 !important;left:0 !important;}
+	}
+
+    .top-pop-banner {
+        width: 100%;
+        background: #0b3b97;
+    }
+    .top-pop-banner .inner {
+        margin: 0 auto;
+        max-width: 1220px;
+    }
+    .top-pop-banner .inner .pop-lay {
+        position: relative;
+        padding: 30px 0;
+    }
+    .top-pop-banner .inner .pop-lay .pop-con p {
+        font-size: 20px;
+        font-weight: 800;
+        color: #c6deff;
+    }
+    .top-pop-banner .inner .pop-lay .pop-con p strong {
+        font-size: inherit;
+        font-weight: inherit;
+        color: #fff;
+    }
+    .top-pop-banner .inner .pop-lay .pop-con span {
+        display: block;
+        margin-top: 5px;
+        font-size: 16px;
+        font-weight: 300;
+        color: #fff;
+    }
+    .top-pop-banner .inner .pop-lay .pop-con span em {
+        font-style: normal;
+        color: #fcff00;
+    }
+    .top-pop-banner .inner .pop-lay .pop-btn-lay {
+        position: absolute;
+        right: 0;
+        bottom: 30px;
+    }
+    .top-pop-banner .inner .pop-lay .pop-btn-lay .today-chk label {
+        font-size: 14px;
+        font-weight: 300;
+        color: #a8bce3;
+    }
+    .today-chk input[type="checkbox"]:checked {
+        color: #000;
+        accent-color: #fff;
+    }
+    @media screen and (max-width: 768px) {
+        .top-pop-banner .inner .pop-lay {
+            padding: 30px 20px;
+        }
+        .top-pop-banner .inner .pop-lay .pop-btn-lay {
+            position: static;
+            margin-top: 15px;
+        }
+    }
+	</style>
+
+	<style>
+		/* Sweet Alert */
+		/* 기존 스타일 */
+		.swal2-modal .swal2-spacer {margin: 10px 0; }
+		.swal2-modal .swal2-file, .swal2-modal .swal2-input, .swal2-modal .swal2-textarea {border: 2px solid #707070;font-size: 16px;box-shadow: none !important; }
+		.swal2-modal .swal2-styled {border: inherit; }
+		.swal2-icon.swal2-question {color: #0f9cf3;border-color: #0f9cf3; }
+		.swal2-icon.swal2-success {border-color: #6fd088; }
+		.swal2-icon.swal2-success .line {background-color: #6fd088; }
+		.swal2-icon.swal2-success .placeholder {border-color: #6fd088; }
+		.swal2-icon.swal2-warning {color: #ffbb44;border-color: #ffbb44; }
+		.swal2-icon.swal2-error {border-color: #f32f53; }
+		.swal2-icon.swal2-error .line {background-color: #f32f53; }
+
+		/* 청년월세 지원용 */
+		.swal2-modal {border-radius: 30px;padding: 20px 20px 30px !important}
+		.swal2-modal .line {margin: 0}
+		.swal2-modal .swal2-title {color: #000;font-size: 30px;font-weight: 700;}
+		.swal2-modal .swal2-content {margin: 20px 0 0;color: #495058;font-size: 18px;}
+		.swal2-modal .swal2-content span.gray {display: inline-block;margin: 10px 0;padding: 25px 45px;background: #f1f1ff;border-radius: 100vw;color: #000000;text-align: center}
+		.swal2-modal .swal2-styled.swal2-confirm {min-width: 180px;height: 65px;margin-top: 10px;background: #243ec7 !important;border: 1px solid #243ec7 !important;border-radius: 10px;}
+		.swal2-modal .swal2-styled.swal2-cancel {min-width: 180px;height: 65px;margin-top: 10px;color: #495058 !important;background: #fff !important;border: 1px solid #adb6bd !important;border-radius: 10px;}
+
+		@media (max-width: 767px) {
+			.swal2-modal .swal2-styled.swal2-confirm,
+			.swal2-modal .swal2-styled.swal2-cancel {min-width: 30%}
+		}
+
+	</style>
+</head>
+<body>
+<div id="layerPopup">
+</div>
+<noscript>자바스크립트를 지원하지 않는 브라우저에서는 일부 기능을 사용하실 수 없습니다.</noscript>
+
+	<!-- skip navigation -->
+    <div class="skipNav">
+		<!-- <a href="#menu">메뉴 바로가기</a> -->
+		<a href="#menu">주메뉴 바로가기</a>
+		<a href="#content">본문 바로가기</a>
+	</div>
+
+<!-- 220412 퍼블 : 팝업 -->
+<!-- <div class="dim"></div>
+<div class="popBack" id="popupLayout">
+	<div class="inner">
+		<div class="popLay">
+			<span class="popBtnLay">
+				<span class="todaychk">
+					<input type="checkbox" name="todaypop" id="todaypop" value="done" /> 오늘 그만보기
+				</span>
+				<a class="pop-close"><img src="/design/theme/housing/images/main/btn_popupclose.jpeg" alt="닫기" /></a>
+			</span>
+			<div class="popCont">
+				<h2>서울주거포털 서비스 일시 중단 안내</h2>
+				<div class="popTxt">
+					정보통신장비 업데이트 작업으로<strong>2022.4.14.(목) 19:00~24:00 </strong>동안 <br>
+					주거포털 서비스가 간혈적으로 중단될수 있으니 이점 양해 바랍니다
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- 팝업 -->
+
+	<!-- header -->
+    <div id="header">
+		<!-- 긴급공지배너 -->
+		<!--<div class="top-pop-banner">
+			<div class="inner">
+				<div class="pop-lay">
+					<div class="pop-con">
+						<p>서울시 <strong>전월세종합지원센터</strong>에서 알려드립니다.</p>
+						<span><em>2023년 12월 28일 오전 09시 ~ 14시</em>까지 전화 시스템장애로 인하여 <em>전화상담이 불가하오니</em>양해하여주시기 바랍니다.</span>
+					</div>
+					<div class="pop-btn-lay">
+						<span class="today-chk">
+							<input type="checkbox" name="todaypop" id="todaypop" value="done"> <label for="todaypop">오늘하루 열지않기</label>
+						</span>
+						<a href="javascript:void(0)" class="today-close-btn" onclick="popClose()"><img src="/design/theme/housing/images/main/btn_todayclose.png" alt="닫기"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<style>
+    .top-pop-banner {
+        width: 100%;
+        background: #0b3b97;
+    }
+    .top-pop-banner .inner {
+        margin: 0 auto;
+        max-width: 1220px;
+    }
+    .top-pop-banner .inner .pop-lay {
+        position: relative;
+        padding: 30px 0;
+    }
+    .top-pop-banner .inner .pop-lay .pop-con p {
+        font-size: 20px;
+        font-weight: 800;
+        color: #c6deff;
+    }
+    .top-pop-banner .inner .pop-lay .pop-con p strong {
+        font-size: inherit;
+        font-weight: inherit;
+        color: #fff;
+    }
+    .top-pop-banner .inner .pop-lay .pop-con span {
+        display: block;
+        margin-top: 5px;
+        font-size: 16px;
+        font-weight: 300;
+        color: #fff;
+    }
+    .top-pop-banner .inner .pop-lay .pop-con span em {
+        font-style: normal;
+        color: #fcff00;
+    }
+    .top-pop-banner .inner .pop-lay .pop-btn-lay {
+        position: absolute;
+        right: 0;
+        bottom: 30px;
+    }
+    .top-pop-banner .inner .pop-lay .pop-btn-lay .today-chk label {
+        font-size: 14px;
+        font-weight: 300;
+        color: #a8bce3;
+    }
+    .today-chk input[type="checkbox"]:checked {
+        color: #000;
+        accent-color: #fff;
+    }
+    @media screen and (max-width: 768px) {
+        .top-pop-banner .inner .pop-lay {
+            padding: 30px 20px;
+        }
+        .top-pop-banner .inner .pop-lay .pop-btn-lay {
+            position: static;
+            margin-top: 15px;
+        }
+    }
+		</style>
+		<script>
+            // 쿠키 가져오기
+			var getCookie = function (cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0; i<ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1);
+					if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+				}
+				return "";
+			}
+
+			// 24시간 기준 쿠키 설정하기
+			var setCookie = function (cname, cvalue, exdays) {
+				var todayDate = new Date();
+				todayDate.setTime(todayDate.getTime() + (exdays*24*60*60*1000));
+				var expires = "expires=" + todayDate.toUTCString(); // UTC기준의 시간에 exdays인자로 받은 값에 의해서 cookie가 설정 됩니다.
+				document.cookie = cname + "=" + cvalue + "; " + expires;
+			}
+
+			var couponClose = function(){
+				if($("input[name='todaypop']").is(":checked") == true){
+					setCookie("close","Y",1);   //기간( ex. 1은 하루, 7은 일주일)
+				}
+				$(".top-pop-banner").hide();
+			}
+
+			$(document).ready(function(){
+				var cookiedata = document.cookie;
+				if(cookiedata.indexOf("close=Y")<0){
+					$(".top-pop-banner").show();
+				}else{
+					$(".top-pop-banner").hide();
+				}
+				$(".today-close-btn").click(function(){
+					couponClose();
+				});
+			});
+		</script>-->
+		<!-- 긴급공지배너 end -->
+	    <!-- seoul common gnb -->
+		<div id="seoul-common-gnb" style="height:48px;background-color:#f8f8f8;">
+			<!-- 임시처리 -->
+			<!-- <div class="header-top">
+				<div class="header-top-in clearfix">
+					<h1><a href="#n"><img src="/seoul/images/common/city_logo.gif" alt="서울특별시 로고" /></a></h1>
+					<p class="city-evt">2019 서울 전환도시 국제컨퍼런스 개최</p>
+					<a href="#n" class="log-btn">로그인</a>
+					<ul class="relate-site clearfix">
+						<li><a href="#n">서울소식</a></li>
+						<li><a href="#n">응답소</a></li>
+						<li><a href="#n">정보공개</a></li>
+						<li><a href="#n">분야별정보</a></li>
+					</ul>
+				</div>
+			</div> -->
+		</div>
+
+
+    	<div class="header-bottom clearfix">
+    		<h1><a href="/site/main/home"><img class="pc" src="/design/theme/housing/images/common/new_logo.gif?v=2026111002" alt="동행매력특별시서울 / 서울주거포털" /><img class="mo" src="/design/theme/housing/images/common/m_new_logo.gif?v=2026111002" alt="동행매력특별시서울 / 서울주거포털" /></a></h1>
+			<div class="mormenu-back"></div>
+
+			<!-- gnb start -->
+			<div class="gnb" id="menu">
+
+				<!-- 모바일 tnb -->
+				<div class="mb-view2 clearfix mor-mn-head">
+					<!--<p class="mor-menu-tit"><img src="/design/theme/housing/images/common/mor_menu_tit02.gif" alt="I Seoul U" />서울주거포털</p>-->
+					<a href="javascript:void(0)" class="mor-menu-close"><img src="/design/theme/housing/images/common/ms_close.gif" alt="메뉴 닫기" /></a>
+					
+						<a href="/site/main/member/SSOLogin?returnUrl=https%3A%2F%2Fhousing.seoul.go.kr%2Fsite%2Fmain%2Fsh%2FpublicLease%2Flist%3Fcp%3D1%26amp%3BsupplyType%3DpublicLease" class="log-btn2">로그인</a>
+					
+					
+				</div>
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="clearfix"><li><a href="#n">주거 정책</a><div class="sub-menu"><p class="sm-title">주거 정책</p><ul class="dp2"><li><a href="/site/main/content/sh01_010000" class="nod">정책 개요</a></li></ul><ul class="dp2"><li><a href="/site/main/polcyManageInfo/customized/list" class="nod">내게 맞는 정책</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_09" class="nod">더드림집+</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_10" class="nod">무주택시민 주거안정 종합대책</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_031200">주택임대</a><ul class="dp3"><li><a href="/site/main/content/sh01_031200">주택지원형</a></li><li><a href="/site/main/content/sh01_031000">보증금지원형</a></li><li><a href="/site/main/content/sh01_060502">수요맞춤형</a></li></ul></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_070300">주택금융지원</a><ul class="dp3"><li><a href="/site/main/content/sh01_070300">주택구입자금</a></li><li><a href="/site/main/content/sh01_070400">전월세(보증금) 자금</a></li></ul></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_080200">주택개량지원</a><ul class="dp3"><li><a href="/site/main/content/sh01_080200">주거급여 수급자 지원(수선유지급여)</a></li><li><a href="/site/main/content/sh01_070701">희망의 집수리 사업</a></li><li><a href="/site/main/content/sh01_070702">주택개량 지원 사업</a></li><li><a href="/site/main/content/sh01_070801">주택개량 자금지원</a></li><li><a href="/site/main/content/sh01_070902">에너지 효율화 사업</a></li></ul></li></ul><ul class="dp2"><li><a href="/site/main/content/sh_061010">주거복지 사업</a><ul class="dp3"><li><a href="/site/main/content/sh_061010">서울형 주택바우처 (일반바우처)</a></li><li><a href="/site/main/content/sh01_061024">서울형 주택바우처(아동바우처)</a></li><li><a href="/site/main/content/sh01_061031">서울형 주택바우처(반지하 거주가구 이주 지원)</a></li><li><a href="/site/main/content/sh01_061032">주거안심동행 민관협력사업</a></li><li><a href="/site/main/content/sh01_074">긴급복지주거지원제도</a></li><li><a href="/site/main/content/sh01_061023">주거취약계층 주거상향지원</a></li><li><a href="/site/main/content/sh01_061021">주거급여 수급자 지원(임차급여)</a></li><li><a href="/site/main/content/sh01_061027">보호종료아동 및 쉼터퇴소 청소년 대상 임대주택 지원</a></li><li><a href="/site/main/content/sh01_061028">1인가구 주택관리서비스</a></li><li><a href="/site/main/content/sh01_061030">전세보증금 반환보증 보증료 지원</a></li></ul></li></ul></div></li><li><a href="#n" class="active">임대/분양 정보</a><div class="sub-menu"><p class="sm-title">임대/분양 정보</p><ul class="dp2"><li><a href="/site/main/sh/publicLease/list">공공임대</a><ul class="dp3"><li><a href="/site/main/sh/publicLease/list">SH공사</a></li><li><a href="/site/main/lh/publicLease/list">LH공사</a></li></ul></li></ul><ul class="dp2"><li><a href="/site/main/sh/publicSale/01/list">공공분양</a><ul class="dp3"><li><a href="/site/main/sh/publicSale/01/list">SH공사</a></li><li><a href="/site/main/lh/publicSale/05/list">LH공사</a></li></ul></li></ul><ul class="dp2"><li><a href="https://soco.seoul.go.kr/coHouse/pgm/home/cohome/list.do?menuNo=200043" class="nod" title="새창" target="_blank">공동체주택</a></li></ul><ul class="dp2"><li><a href="https://soco.seoul.go.kr/soHouse/pgm/home/sohome/list.do?menuNo=300006" class="nod" title="새창" target="_blank">사회주택</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh02_05" class="nod">청년안심주택</a></li></ul></div></li><li><a href="#n">청년·신혼부부 지원</a><div class="sub-menu"><p class="sm-title">청년·신혼부부 지원</p><ul class="dp2"><li><a href="/site/main/content/sh01_060513">청년월세지원</a><ul class="dp3"><li><a href="/site/main/content/sh01_060513">사업개요</a></li><li><a href="/site/main/board/faq_mr/list">FAQ</a></li><li><a href="/site/main/board/resources_mr/list">자료실</a></li><li><a href="/site/main/content/sh01_060513_6">신청자격 확인</a></li><li><a href="/site/main/content/sh01_060513_7">제출서류·관련기관 안내</a></li></ul></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_0400800" class="nod">신혼부부임차보증금</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_0400811" class="nod">신혼부부반환보증료</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_040901" class="nod">청년임차보증금</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_060504" class="nod">한지붕세대공감</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_060508" class="nod">청년안심주택</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_060509" class="nod">희망하우징</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_060503" class="nod">행복주택</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_060511" class="nod">신혼희망타운</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_060510" class="nod">행복기숙사</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh01_060506" class="nod">청년전세임대주택</a></li></ul><ul class="dp2"><li><a href="https://www.myhome.go.kr/hws/portal/main/getMgtMainYhsPage.do" class="nod" title="새창" target="_blank">마이홈 자가진단</a></li></ul></div></li><li><a href="#n">온라인 상담</a><div class="sub-menu"><p class="sm-title">온라인 상담</p><ul class="dp2"><li><a href="/site/main/content/sh04_020100">전월세 종합지원</a><ul class="dp3"><li><a href="/site/main/content/sh04_020100">상담실 소개</a></li><li><a href="/site/main/content/sh04_020200">주요 상담분야</a></li></ul></li></ul><ul class="dp2"><li><a href="/site/main/content/sh04_030100">공동주택 상담 지원</a><ul class="dp3"><li><a href="/site/main/content/sh04_030100">상담실 소개</a></li><li><a href="/site/main/content/sh04_030200">주요 상담분야</a></li></ul></li></ul><ul class="dp2"><li><a href="/site/main/content/sh04_040100">층간소음상담</a><ul class="dp3"><li><a href="/site/main/content/sh04_040100">상담실 소개</a></li></ul></li></ul><ul class="dp2"><li><a href="/site/main/content/sh04_050001" class="nod">전세가격 상담</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh04_040000" class="nod">집수리 관련 상담</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh04_050002" class="nod">주택임대차 분쟁조정</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh04_050100">주거복지 관련 상담</a><ul class="dp3"><li><a href="/site/main/content/sh04_050100">주거복지 관련 상담 소개</a></li></ul></li></ul></div></li><li><a href="#n">알림소통</a><div class="sub-menu"><p class="sm-title">알림소통</p><ul class="dp2"><li><a href="/site/main/content/sh05_070100">전세사기 피해지원</a><ul class="dp3"><li><a href="/site/main/content/sh05_070100">전세사기피해자등 결정신청 안내</a></li><li><a href="/site/main/content/sh05_070300">전세사기 피해 지원 안내</a></li><li><a href="/site/main/content/sh05_070200">전세사기 피해 예방</a></li><li><a href="/site/main/content/sh05_070400">청년 전세사기 피해예방 현장설명회</a></li></ul></li></ul><ul class="dp2"><li><a href="/site/main/content/sh05_090000" class="nod">반지하 주택 관련 지원사업</a></li></ul><ul class="dp2"><li><a href="/site/main/content/sh05_040000" class="nod">서울주택 정보마당</a></li></ul><ul class="dp2"><li><a href="/site/main/board/notice/list" class="nod">공지사항</a></li></ul><ul class="dp2"><li><a href="/site/main/tvReportedInfo/list" class="nod">보도자료</a></li></ul><ul class="dp2"><li><a href="https://housing.seoul.go.kr/site/main/content/sh05_060200">통합자료실</a><ul class="dp3"><li><a href="/site/main/content/sh05_060200">법령자료</a></li><li><a href="/site/main/content/sh05_060300">관련기관 정보</a></li></ul></li></ul></div></li></ul>
+			</div>
+			<!-- gnb end -->
+
+
+			<!-- all menu -->
+			
+			<div class="aml-out">
+				<div class="all-menu-list">
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="#n">주거 정책</a><ul><li><a href="/site/main/content/sh01_010000">정책 개요</a></li><li><a href="/site/main/polcyManageInfo/customized/list">내게 맞는 정책</a></li><li><a href="/site/main/content/sh01_09">더드림집+</a></li><li><a href="/site/main/content/sh01_10">무주택시민 주거안정 종합대책</a></li><li><a href="/site/main/content/sh01_031200">주택임대</a><ul><li><a href="/site/main/content/sh01_031200">주택지원형</a></li><li><a href="/site/main/content/sh01_031000">보증금지원형</a></li><li><a href="/site/main/content/sh01_060502">수요맞춤형</a></li></ul></li><li><a href="/site/main/content/sh01_070300">주택금융지원</a><ul><li><a href="/site/main/content/sh01_070300">주택구입자금</a></li><li><a href="/site/main/content/sh01_070400">전월세(보증금) 자금</a></li></ul></li><li><a href="/site/main/content/sh01_080200">주택개량지원</a><ul><li><a href="/site/main/content/sh01_080200">주거급여 수급자 지원(수선유지급여)</a></li><li><a href="/site/main/content/sh01_070701">희망의 집수리 사업</a></li><li><a href="/site/main/content/sh01_070702">주택개량 지원 사업</a></li><li><a href="/site/main/content/sh01_070801">주택개량 자금지원</a></li><li><a href="/site/main/content/sh01_070902">에너지 효율화 사업</a></li></ul></li><li><a href="/site/main/content/sh_061010">주거복지 사업</a><ul><li><a href="/site/main/content/sh_061010">서울형 주택바우처 (일반바우처)</a></li><li><a href="/site/main/content/sh01_061024">서울형 주택바우처(아동바우처)</a></li><li><a href="/site/main/content/sh01_061031">서울형 주택바우처(반지하 거주가구 이주 지원)</a></li><li><a href="/site/main/content/sh01_061032">주거안심동행 민관협력사업</a></li><li><a href="/site/main/content/sh01_074">긴급복지주거지원제도</a></li><li><a href="/site/main/content/sh01_061023">주거취약계층 주거상향지원</a></li><li><a href="/site/main/content/sh01_061021">주거급여 수급자 지원(임차급여)</a></li><li><a href="/site/main/content/sh01_061027">보호종료아동 및 쉼터퇴소 청소년 대상 임대주택 지원</a></li><li><a href="/site/main/content/sh01_061028">1인가구 주택관리서비스</a></li><li><a href="/site/main/content/sh01_061030">전세보증금 반환보증 보증료 지원</a></li></ul></li></ul></li><li><a href="#n">임대/분양 정보</a><ul><li><a href="/site/main/sh/publicLease/list">공공임대</a><ul><li><a href="/site/main/sh/publicLease/list">SH공사</a></li><li><a href="/site/main/lh/publicLease/list">LH공사</a></li></ul></li><li><a href="/site/main/sh/publicSale/01/list">공공분양</a><ul><li><a href="/site/main/sh/publicSale/01/list">SH공사</a></li><li><a href="/site/main/lh/publicSale/05/list">LH공사</a></li></ul></li><li><a href="https://soco.seoul.go.kr/coHouse/pgm/home/cohome/list.do?menuNo=200043" title="새창" target="_blank">공동체주택</a></li><li><a href="https://soco.seoul.go.kr/soHouse/pgm/home/sohome/list.do?menuNo=300006" title="새창" target="_blank">사회주택</a></li><li><a href="/site/main/content/sh02_05">청년안심주택</a></li></ul></li><li><a href="#n">청년·신혼부부 지원</a><ul><li><a href="/site/main/content/sh01_060513">청년월세지원</a><ul><li><a href="/site/main/content/sh01_060513">사업개요</a></li><li><a href="/site/main/board/faq_mr/list">FAQ</a></li><li><a href="/site/main/board/resources_mr/list">자료실</a></li><li><a href="/site/main/content/sh01_060513_6">신청자격 확인</a></li><li><a href="/site/main/content/sh01_060513_7">제출서류·관련기관 안내</a></li></ul></li><li><a href="/site/main/content/sh01_0400800">신혼부부임차보증금</a></li><li><a href="/site/main/content/sh01_0400811">신혼부부반환보증료</a></li><li><a href="/site/main/content/sh01_040901">청년임차보증금</a></li><li><a href="/site/main/content/sh01_060504">한지붕세대공감</a></li><li><a href="/site/main/content/sh01_060508">청년안심주택</a></li><li><a href="/site/main/content/sh01_060509">희망하우징</a></li><li><a href="/site/main/content/sh01_060503">행복주택</a></li><li><a href="/site/main/content/sh01_060511">신혼희망타운</a></li><li><a href="/site/main/content/sh01_060510">행복기숙사</a></li><li><a href="/site/main/content/sh01_060506">청년전세임대주택</a></li><li><a href="https://www.myhome.go.kr/hws/portal/main/getMgtMainYhsPage.do" title="새창" target="_blank">마이홈 자가진단</a></li></ul></li><li><a href="#n">온라인 상담</a><ul><li><a href="/site/main/content/sh04_020100">전월세 종합지원</a><ul><li><a href="/site/main/content/sh04_020100">상담실 소개</a></li><li><a href="/site/main/content/sh04_020200">주요 상담분야</a></li></ul></li><li><a href="/site/main/content/sh04_030100">공동주택 상담 지원</a><ul><li><a href="/site/main/content/sh04_030100">상담실 소개</a></li><li><a href="/site/main/content/sh04_030200">주요 상담분야</a></li></ul></li><li><a href="/site/main/content/sh04_040100">층간소음상담</a><ul><li><a href="/site/main/content/sh04_040100">상담실 소개</a></li></ul></li><li><a href="/site/main/content/sh04_050001">전세가격 상담</a></li><li><a href="/site/main/content/sh04_040000">집수리 관련 상담</a></li><li><a href="/site/main/content/sh04_050002">주택임대차 분쟁조정</a></li><li><a href="/site/main/content/sh04_050100">주거복지 관련 상담</a><ul><li><a href="/site/main/content/sh04_050100">주거복지 관련 상담 소개</a></li></ul></li></ul></li><li><a href="#n">알림소통</a><ul><li><a href="/site/main/content/sh05_070100">전세사기 피해지원</a><ul><li><a href="/site/main/content/sh05_070100">전세사기피해자등 결정신청 안내</a></li><li><a href="/site/main/content/sh05_070300">전세사기 피해 지원 안내</a></li><li><a href="/site/main/content/sh05_070200">전세사기 피해 예방</a></li><li><a href="/site/main/content/sh05_070400">청년 전세사기 피해예방 현장설명회</a></li></ul></li><li><a href="/site/main/content/sh05_090000">반지하 주택 관련 지원사업</a></li><li><a href="/site/main/content/sh05_040000">서울주택 정보마당</a></li><li><a href="/site/main/board/notice/list">공지사항</a></li><li><a href="/site/main/tvReportedInfo/list">보도자료</a></li><li><a href="https://housing.seoul.go.kr/site/main/content/sh05_060200">통합자료실</a><ul><li><a href="/site/main/content/sh05_060200">법령자료</a></li><li><a href="/site/main/content/sh05_060300">관련기관 정보</a></li></ul></li></ul></li></ul>
+				</div>
+				<div class="inner"><a href="#n" class="am-close"><img src="/design/theme/housing/images/common/mor_menu_close.gif" alt="전체메뉴 닫기" /></a></div>
+			</div>
+
+			<!-- all menu end -->
+
+			<!-- tnb (로그인,검색,전체메뉴)-->
+			
+
+
+
+<script>
+jQuery(function($){
+	$(".search-submit-btn").click(function(){
+		var pQuery_tmp_mobile = $("#pQuery_tmp_mobile").val();
+		if(pQuery_tmp_mobile != '' && pQuery_tmp_mobile != null){
+			$("#pQuery").val(pQuery_tmp_mobile);
+			$("#pQuery_tmp").val(pQuery_tmp_mobile);
+		}else{
+			$("#pQuery").val($("#pQuery_tmp").val());
+		}
+		$("#frm").submit();
+	});
+});
+</script>
+
+<div class="header-search"> <!-- <div class="clearfix">-->
+	
+			<a href="/site/main/member/SSOLogin?returnUrl=https%3A%2F%2Fhousing.seoul.go.kr%2Fsite%2Fmain%2Fsh%2FpublicLease%2Flist%3Fcp%3D1%26amp%3BsupplyType%3DpublicLease" class="log-btn">로그인</a>
+	
+	
+	<form name="frm
