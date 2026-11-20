@@ -9,8 +9,8 @@
   "posted": "2026-11-19",
   "close": "2026-12-01",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021098&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
-  "start": null,
-  "end": "2026-12-01",
+  "start": "2026-11-30",
+  "end": "2026-12-11",
   "notified_start": false,
   "notified_new": false
  },
@@ -24,7 +24,7 @@
   "posted": "2026-11-19",
   "close": "2026-12-04",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021109&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
-  "start": null,
+  "start": "2026-11-30",
   "end": "2026-12-04",
   "notified_start": false,
   "notified_new": false
@@ -39,7 +39,7 @@
   "posted": "2026-11-19",
   "close": "2026-12-02",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021119&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
-  "start": null,
+  "start": "2026-11-30",
   "end": "2026-12-02",
   "notified_start": false,
   "notified_new": false
@@ -99,7 +99,7 @@
   "posted": "2026-11-16",
   "close": "2026-12-08",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021058&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=40&mi=1026",
-  "start": null,
+  "start": "2026-12-08",
   "end": "2026-12-08",
   "notified_start": false,
   "notified_new": false
@@ -114,7 +114,7 @@
   "posted": "2026-11-16",
   "close": "2026-11-25",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021068&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
-  "start": null,
+  "start": "2026-11-23",
   "end": "2026-11-25",
   "notified_start": false,
   "notified_new": false
@@ -129,7 +129,7 @@
   "posted": "2026-11-11",
   "close": "2026-11-25",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021050&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
-  "start": null,
+  "start": "2026-11-23",
   "end": "2026-11-25",
   "notified_start": false,
   "notified_new": false
@@ -144,8 +144,8 @@
   "posted": "2026-11-05",
   "close": "2026-11-27",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020973&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
-  "start": null,
-  "end": "2026-11-27",
+  "start": "2026-11-25",
+  "end": "2026-12-18",
   "notified_start": false,
   "notified_new": false
  },
@@ -159,7 +159,7 @@
   "posted": "2026-11-19",
   "close": "2026-12-02",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021121&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
-  "start": null,
+  "start": "2026-12-02",
   "end": "2026-12-02",
   "notified_start": false,
   "notified_new": false
@@ -174,7 +174,7 @@
   "posted": "2026-11-19",
   "close": "2026-12-03",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021117&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
-  "start": null,
+  "start": "2026-12-01",
   "end": "2026-12-03",
   "notified_start": false,
   "notified_new": false
@@ -189,8 +189,8 @@
   "posted": "2026-11-19",
   "close": "2026-12-03",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021099&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
-  "start": null,
-  "end": "2026-12-03",
+  "start": "2026-12-01",
+  "end": "2026-12-10",
   "notified_start": false,
   "notified_new": false
  },
@@ -204,8 +204,8 @@
   "posted": "2026-11-11",
   "close": "2026-11-25",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021052&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
-  "start": null,
-  "end": "2026-11-25",
+  "start": "2026-11-23",
+  "end": "2026-12-11",
   "notified_start": false,
   "notified_new": false
  },
@@ -219,7 +219,7 @@
   "posted": "2026-11-04",
   "close": "2026-11-23",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021005&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=40&mi=1026",
-  "start": null,
+  "start": "2026-11-23",
   "end": "2026-11-23",
   "notified_start": false,
   "notified_new": false
