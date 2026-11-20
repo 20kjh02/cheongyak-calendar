@@ -225,7 +225,7 @@ def notice_rows_md(recs):
     out = []
     for r in recs:
         period = f"{r['start']} ~ {r['end'] or '?'}" if r["start"] else f"공고일 {r['posted'] or '?'} (접수일 확인 필요)"
-        out.append(f"- **[{r['region']}] {r['name']}**  \n  {r['type']} · {period} · [공고 원문]({r['url']})")
+        out.append(f"- **[{r.get('org', 'LH')}·{r['region']}] {r['name']}**  \n  {r['type']} · {period} · [공고 원문]({r['url']})")
     return "\n".join(out)
 
 
@@ -234,7 +234,7 @@ def notice_rows_html(recs):
     for r in recs:
         period = f"{r['start']} ~ {r['end'] or '?'}" if r["start"] else f"공고일 {r['posted'] or '?'} (접수일 확인 필요)"
         out.append(
-            f"<li style='margin-bottom:10px'><b>[{escape(r['region'])}] {escape(r['name'])}</b><br>"
+            f"<li style='margin-bottom:10px'><b>[{escape(r.get('org', 'LH'))}·{escape(r['region'])}] {escape(r['name'])}</b><br>"
             f"{escape(r['type'])} · {period}<br><a href='{escape(r['url'])}'>공고 원문 보기</a></li>"
         )
     return "<ul style='padding-left:18px'>" + "".join(out) + "</ul>"
@@ -307,6 +307,13 @@ def main():
     rows = fetch_list(key)
     print(f"목록 {len(rows)}건 수집")
     build_records(key, rows, store)
+
+    try:
+        import sh_notices
+        n, total = sh_notices.fetch_sh(store, DEBUG_DIR if DEBUG else None)
+        print(f"SH 목록 {total}건 중 모집중 {n}건 반영")
+    except Exception as e:  # SH가 실패해도 LH 결과는 계속 처리
+        print(f"SH 수집 실패 (LH는 계속 진행): {type(e).__name__}: {e}")
 
     cutoff = (today - timedelta(days=KEEP_DAYS)).isoformat()
     store = {k: r for k, r in store.items()
