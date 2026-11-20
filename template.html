@@ -75,6 +75,10 @@ dialog dt{color:var(--sub)} dialog dd{margin:0}
 .btn.main{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .note{color:var(--soon);font-size:13px;margin:-6px 0 14px}
 footer{margin-top:28px;color:var(--sub);font-size:13px}
+footer .chip{margin-top:10px;font-size:13px}
+.tag{font-size:11px;font-weight:700;color:var(--bg);background:var(--seoul);border-radius:4px;padding:0 5px;margin-right:4px;vertical-align:1px}
+.hint{color:var(--sub);font-size:13px;margin:0 0 10px}
+dialog textarea{width:100%;font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);padding:8px;margin-bottom:14px}
 
 @media (max-width:640px){
   main{padding-top:20px}
@@ -112,7 +116,7 @@ footer{margin-top:28px;color:var(--sub);font-size:13px}
   <h2>접수 예정·진행 중</h2>
   <ul class="list" id="list"></ul>
 
-  <footer id="foot"></footer>
+  <footer><span id="foot"></span><br><button class="chip" id="bkOpen">지원 표시 백업·복원</button></footer>
 </main>
 
 <dialog id="dlg">
@@ -120,14 +124,26 @@ footer{margin-top:28px;color:var(--sub);font-size:13px}
   <dl id="dD"></dl>
   <p class="note" id="dN" hidden>접수 시작일을 자동으로 읽지 못했어요. 원문에서 일정을 확인하세요.</p>
   <div class="actions">
+    <button class="btn" id="dA"></button>
     <button class="btn" id="dX">닫기</button>
     <a class="btn main" id="dL" target="_blank" rel="noopener">공고 원문 보기</a>
+  </div>
+</dialog>
+
+<dialog id="dlg2">
+  <h3>지원 표시 백업·복원</h3>
+  <p class="hint">지원 표시는 이 브라우저에만 저장돼요. 다른 기기에서 쓰려면 아래 코드를 복사해 그 기기의 이 화면에 붙여넣고 복원하세요. 복원하면 기존 표시에 더해져요.</p>
+  <textarea id="bk" rows="4" spellcheck="false"></textarea>
+  <div class="actions">
+    <button class="btn" id="bkX">닫기</button>
+    <button class="btn main" id="bkR">복원</button>
   </div>
 </dialog>
 
 <script>
 const DATA = /*DATA*/[];
 const META = /*META*/{};
+const KW = (META.keywords || []).join('·') || '전체';
 const CLS = {서울:'seoul', 경기:'gg', 인천:'ic'};
 const $ = s => document.querySelector(s);
 const pad = n => String(n).padStart(2,'0');
@@ -141,14 +157,25 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
 let view = {y: T.getFullYear(), m: T.getMonth()};
 let region = '전체';
 let org = '전체';
+let mode = 'match';   // match(맞춤) | all(전체) | applied(지원한 공고)
+let curId = null;
+const LS_KEY = 'cheongyak-applied';
+let applied = new Set();
+try { applied = new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]')); } catch (e) {}
+const saveApplied = () => { try { localStorage.setItem(LS_KEY, JSON.stringify([...applied])); } catch (e) {} };
+const nm = r => (applied.has(r.id) ? '✓ ' : '') + r.name;
 const byId = Object.fromEntries(DATA.map(r => [r.id, r]));
-const shown = () => DATA.filter(r => (region === '전체' || r.region === region) && (org === '전체' || r.org === org));
+const shown = () => DATA.filter(r => (region === '전체' || r.region === region) && (org === '전체' || r.org === org)
+  && (mode === 'all' || (mode === 'match' ? r.match : applied.has(r.id))));
 
 function renderChips(){
   const btn = (k, v, cur) => `<button class="chip" data-${k}="${v}" aria-pressed="${v === cur}">${v}</button>`;
   $('#chips').innerHTML = ['전체','서울','경기','인천'].map(n => btn('r', n, region)).join('')
     + '<span class="sep"></span>'
-    + ['전체','LH','SH'].map(n => btn('o', n, org)).join('');
+    + ['전체','LH','SH'].map(n => btn('o', n, org)).join('')
+    + '<span class="sep"></span>'
+    + [['match', '맞춤 공고'], ['all', '전체 공고'], ['applied', `지원한 공고 ${DATA.filter(r => applied.has(r.id)).length}`]].map(([v, l]) =>
+        `<button class="chip" data-m="${v}" aria-pressed="${v === mode}">${l}</button>`).join('');
 }
 
 function renderNext(){
@@ -171,9 +198,9 @@ function renderGrid(){
     const k = iso(view.y, view.m, d), ev = [];
     for (const r of list){
       const c = CLS[r.region] || 'seoul';
-      if (r.start === k) ev.push(`<button class="ev start ${c}" data-id="${esc(r.id)}" title="${esc(r.name)}">${esc(r.name)}</button>`);
-      else if (r.end === k && r.start) ev.push(`<button class="ev end ${c}" data-id="${esc(r.id)}" title="마감 · ${esc(r.name)}">마감 ${esc(r.name)}</button>`);
-      else if (!r.start && r.posted === k) ev.push(`<button class="ev posted ${c}" data-id="${esc(r.id)}" title="${esc(r.name)}">${esc(r.name)}</button>`);
+      if (r.start === k) ev.push(`<button class="ev start ${c}" data-id="${esc(r.id)}" title="${esc(r.name)}">${esc(nm(r))}</button>`);
+      else if (r.end === k && r.start) ev.push(`<button class="ev end ${c}" data-id="${esc(r.id)}" title="마감 · ${esc(r.name)}">마감 ${esc(nm(r))}</button>`);
+      else if (!r.start && r.posted === k) ev.push(`<button class="ev posted ${c}" data-id="${esc(r.id)}" title="${esc(r.name)}">${esc(nm(r))}</button>`);
       else if (r.start && r.end && r.start < k && k < r.end) ev.push(`<button class="ev mid ${c}" data-id="${esc(r.id)}" title="${esc(r.name)}" aria-label="${esc(r.name)} 접수 중"></button>`);
     }
     const bars = ev.filter(e => e.includes('class="ev mid')), main = ev.filter(e => !e.includes('class="ev mid'));
@@ -191,8 +218,8 @@ function renderList(){
     const dd = r.start ? `<div class="dd${days(TODAY, r.start) >= 0 && days(TODAY, r.start) <= 1 ? ' soon' : ''}">${ddText(r)}<small>접수 시작</small></div>`
                        : `<div class="dd"><small>일정 확인</small></div>`;
     const per = r.start ? `${r.start} ~ ${r.end || '?'}` : `공고일 ${r.posted || '?'}`;
-    return `<li><button class="row ${c}" data-id="${esc(r.id)}">${dd}<div><div class="t">${esc(r.name)}</div><div class="s">${esc(r.org)} · ${esc(r.region)} · ${esc(r.type)} · ${per}</div></div></button></li>`;
-  }).join('') : '<li class="empty">표시할 공고가 없어요. 지역 필터를 바꾸거나 다음 갱신을 기다려 주세요.</li>';
+    return `<li><button class="row ${c}" data-id="${esc(r.id)}">${dd}<div><div class="t">${applied.has(r.id) ? '<b class="tag">지원함</b>' : ''}${esc(r.name)}</div><div class="s">${esc(r.org)} · ${esc(r.region)} · ${esc(r.type)} · ${per}</div></div></button></li>`;
+  }).join('') : `<li class="empty">${mode === 'applied' ? '지원한 공고로 표시한 공고가 없어요. 공고를 눌러 \'지원함으로 표시\'를 선택하세요.' : mode === 'match' ? `맞춤 공고(${KW})가 아직 없어요. \'전체 공고\'로 바꾸면 다른 공고도 볼 수 있어요.` : '표시할 공고가 없어요. 필터를 바꾸거나 다음 갱신을 기다려 주세요.'}</li>`;
 }
 
 function openDlg(id){
@@ -203,12 +230,18 @@ function openDlg(id){
     .map(([a,b]) => `<dt>${a}</dt><dd>${esc(b)}</dd>`).join('');
   $('#dN').hidden = !!r.start;
   $('#dL').href = r.url;
+  curId = id;
+  $('#dA').textContent = applied.has(id) ? '지원 표시 해제' : '지원함으로 표시';
   $('#dlg').showModal();
 }
 
-function renderAll(){ renderChips(); renderNext(); renderGrid(); renderList(); }
+function renderFoot(){
+  const n = DATA.filter(r => applied.has(r.id)).length;
+  $('#foot').textContent = META.updated ? `맞춤 키워드 ${KW} · 맞춤 ${DATA.filter(r => r.match).length}건 / 전체 ${DATA.length}건 · 지원 표시 ${n}건 · 마지막 갱신 ${META.updated} (KST) · 데이터 출처: LH 청약플러스(공공데이터포털), SH(서울주거포털). 접수 일정은 반드시 공고 원문에서 다시 확인하세요.` : '';
+}
+function renderAll(){ renderChips(); renderNext(); renderGrid(); renderList(); renderFoot(); }
 document.addEventListener('click', e => {
-  const chip = e.target.closest('.chip'); if (chip){ if (chip.dataset.o) org = chip.dataset.o; else region = chip.dataset.r; renderAll(); return; }
+  const chip = e.target.closest('.chip'); if (chip){ if (chip.dataset.m) mode = chip.dataset.m; else if (chip.dataset.o) org = chip.dataset.o; else region = chip.dataset.r; renderAll(); return; }
   const ev = e.target.closest('[data-id]'); if (ev) openDlg(ev.dataset.id);
 });
 const shift = n => { const d = new Date(view.y, view.m + n, 1); view = {y: d.getFullYear(), m: d.getMonth()}; renderGrid(); };
@@ -216,8 +249,25 @@ $('#prev').onclick = () => shift(-1);
 $('#nextm').onclick = () => shift(1);
 $('#now').onclick = () => { view = {y: T.getFullYear(), m: T.getMonth()}; renderGrid(); };
 $('#dX').onclick = () => $('#dlg').close();
+$('#dA').onclick = () => {
+  if (!curId) return;
+  applied.has(curId) ? applied.delete(curId) : applied.add(curId);
+  saveApplied();
+  $('#dA').textContent = applied.has(curId) ? '지원 표시 해제' : '지원함으로 표시';
+  renderAll();
+};
+$('#bkOpen').onclick = () => { $('#bk').value = JSON.stringify([...applied]); $('#dlg2').showModal(); };
+$('#bkX').onclick = () => $('#dlg2').close();
+$('#bkR').onclick = () => {
+  try {
+    const arr = JSON.parse($('#bk').value);
+    if (!Array.isArray(arr)) throw new Error('not array');
+    arr.filter(x => typeof x === 'string').forEach(x => applied.add(x));
+    saveApplied(); renderAll(); $('#dlg2').close();
+  } catch (e) { $('#bk').value = '복원 코드가 올바르지 않아요. 백업한 코드를 그대로 붙여넣어 주세요.'; }
+};
+$('#dlg2').addEventListener('click', e => { if (e.target === $('#dlg2')) $('#dlg2').close(); });
 $('#dlg').addEventListener('click', e => { if (e.target === $('#dlg')) $('#dlg').close(); });
-$('#foot').textContent = META.updated ? `마지막 갱신 ${META.updated} (KST) · 데이터 출처: LH 청약플러스(공공데이터포털), SH(서울주거포털). 접수 일정은 반드시 공고 원문에서 다시 확인하세요.` : '';
 renderAll();
 </script>
 </body>
