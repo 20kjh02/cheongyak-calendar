@@ -28,9 +28,9 @@ TEMPLATE = ROOT / "template.html"
 
 CAL_URL = os.environ.get("CAL_URL", "https://20kjh02.github.io/cheongyak-calendar/")
 LIST_URL = "http://apis.data.go.kr/B552555/lhLeaseNoticeInfo1/lhLeaseNoticeInfo1"
-# 상세(공급정보) API 주소는 공공데이터포털 '분양임대공고별 공급정보 조회 서비스' 페이지에서 확인 후
-# 다르면 이 값만 고치면 됩니다.
-DETAIL_URL = "http://apis.data.go.kr/B552555/lhLeaseNoticeSplInfo1/getLeaseNoticeSplInfo1"
+# 상세정보 API: '한국토지주택공사_분양임대공고별 상세정보 조회 서비스' (접수처/단지/일정 정보)
+# 공공데이터포털에서 이 서비스를 따로 활용신청해야 호출됩니다.
+DETAIL_URL = "https://apis.data.go.kr/B552555/lhLeaseNoticeDtlInfo1/getLeaseNoticeDtlInfo1"
 
 REGIONS = {"11": "서울", "41": "경기", "28": "인천"}  # 지역코드
 LEASE_TYPE = "06"                                     # 상위유형: 임대주택
@@ -193,6 +193,42 @@ def send_mail(subject, html):
     raise RuntimeError(f"메일 전송 실패 ({last})")
 
 
+def create_issue(title, md):
+    """메일이 막힐 때의 대체 경로: GitHub 이슈를 만들어 저장소 주인을 멘션(알림 메일은 GitHub가 발송)."""
+    token, repo = os.environ.get("GITHUB_TOKEN"), os.environ.get("GITHUB_REPOSITORY")
+    if not (token and repo):
+        raise RuntimeError("GITHUB_TOKEN / GITHUB_REPOSITORY 없음")
+    owner = repo.split("/")[0]
+    try:
+        r = requests.post(
+            f"https://api.github.com/repos/{repo}/issues",
+            headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"},
+            json={"title": title, "body": f"@{owner}\n\n{md}"}, timeout=30)
+    except requests.RequestException as e:
+        raise RuntimeError(f"GitHub 이슈 생성 요청 실패: {type(e).__name__}") from None
+    if r.status_code != 201:
+        raise RuntimeError(f"GitHub 이슈 생성 실패 HTTP {r.status_code}: {r.text[:200]}")
+
+
+def notify(subject, html, md):
+    """메일을 먼저 시도하고, 실패하면 GitHub 이슈로 알림. 성공한 경로 이름을 반환."""
+    try:
+        send_mail(subject, html)
+        return "메일"
+    except Exception as e:
+        print(f"메일 실패: {e} -> GitHub 이슈로 대체")
+    create_issue(subject, md)
+    return "GitHub 이슈"
+
+
+def notice_rows_md(recs):
+    out = []
+    for r in recs:
+        period = f"{r['start']} ~ {r['end'] or '?'}" if r["start"] else f"공고일 {r['posted'] or '?'} (접수일 확인 필요)"
+        out.append(f"- **[{r['region']}] {r['name']}**  \n  {r['type']} · {period} · [공고 원문]({r['url']})")
+    return "\n".join(out)
+
+
 def notice_rows_html(recs):
     out = []
     for r in recs:
@@ -213,21 +249,26 @@ def alert(store, today):
     if not due and not unknown:
         print("보낼 알림 없음")
         return
-    body = ""
+    body, md = "", ""
     if due:
         body += f"<h3>내일 접수 시작 ({len(due)}건)</h3>" + notice_rows_html(due)
+        md += f"### 내일 접수 시작 ({len(due)}건)\n{notice_rows_md(due)}\n\n"
     if unknown:
         body += (f"<h3>신규 공고 - 접수일 확인 필요 ({len(unknown)}건)</h3>"
                  "<p style='color:#666'>접수 시작일을 자동으로 읽지 못한 공고입니다. 원문에서 일정을 확인하세요.</p>"
                  + notice_rows_html(unknown))
+        md += (f"### 신규 공고 - 접수일 확인 필요 ({len(unknown)}건)\n"
+               "접수 시작일을 자동으로 읽지 못한 공고입니다. 원문에서 일정을 확인하세요.\n"
+               f"{notice_rows_md(unknown)}\n\n")
     body += f"<p><a href='{CAL_URL}'>청약 캘린더 열기</a></p>"
+    md += f"[청약 캘린더 열기]({CAL_URL})"
     subject = "[청약알림] " + (f"내일 접수 시작 {len(due)}건" if due else f"신규 공고 {len(unknown)}건")
-    send_mail(subject, body)
+    how = notify(subject, body, md)
     for r in due:
         r["notified_start"] = True
     for r in unknown:
         r["notified_new"] = True
-    print(f"메일 발송: 접수 임박 {len(due)}건, 일정 미확인 {len(unknown)}건")
+    print(f"{how} 알림 완료: 접수 임박 {len(due)}건, 일정 미확인 {len(unknown)}건")
 
 
 # ---------- 캘린더 페이지 ----------
@@ -250,12 +291,13 @@ def main():
     test_error = None
     if TEST_MAIL:
         try:
-            send_mail("[청약알림] 테스트 메일",
-                      f"<p>메일 설정이 정상입니다.</p><p><a href='{CAL_URL}'>청약 캘린더 열기</a></p>")
-            print("테스트 메일 발송 완료")
-        except Exception as e:  # 메일이 실패해도 LH 수집 확인은 계속 진행
+            how = notify("[청약알림] 테스트 알림",
+                         f"<p>알림 설정이 정상입니다.</p><p><a href='{CAL_URL}'>청약 캘린더 열기</a></p>",
+                         f"알림 설정이 정상입니다.\n\n[청약 캘린더 열기]({CAL_URL})")
+            print(f"테스트 알림 발송 완료 ({how})")
+        except Exception as e:  # 알림이 실패해도 LH 수집 확인은 계속 진행
             test_error = e
-            print(f"테스트 메일 실패: {e}")
+            print(f"테스트 알림 실패: {e}")
 
     key = unquote(os.environ.get("LH_API_KEY", "").strip())
     if not key:
@@ -282,7 +324,7 @@ def main():
     render(store, now)
     print(f"저장 완료: {len(store)}건")
     if mail_error:
-        sys.exit(f"메일 발송 실패: {mail_error}")
+        sys.exit(f"알림 발송 실패: {mail_error}")
 
 
 if __name__ == "__main__":
