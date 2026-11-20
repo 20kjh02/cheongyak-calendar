@@ -1,4 +1,4 @@
 
 
-[{"dsSch":[{"PAN_ED_DT":"20261120","PG_SZ":"50","PAN_ST_DT":"20260920","PAGE":"1","UPP_AIS_TP_CD":"06","CNP_CD":"41","PAN_SS":"접수중"}]},{"dsList":[],"resHeader":[{"RS_DTTM":"20261120020404","SS_CODE":"Y"}]}]
+[{"dsSch":[{"PAN_ED_DT":"20261120","PG_SZ":"50","PAN_ST_DT":"20260920","PAGE":"1","UPP_AIS_TP_CD":"06","CNP_CD":"41","PAN_SS":"접수중"}]},{"dsList":[],"resHeader":[{"RS_DTTM":"20261120020806","SS_CODE":"Y"}]}]
 

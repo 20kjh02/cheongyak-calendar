@@ -57,7 +57,7 @@
   "start": null,
   "end": "2026-12-03",
   "notified_start": false,
-  "notified_new": false
+  "notified_new": true
  },
  "0000061210": {
   "id": "0000061210",
@@ -72,7 +72,7 @@
   "start": null,
   "end": "2026-11-26",
   "notified_start": false,
-  "notified_new": false
+  "notified_new": true
  },
  "0000061212": {
   "id": "0000061212",
@@ -87,7 +87,7 @@
   "start": null,
   "end": "2026-11-26",
   "notified_start": false,
-  "notified_new": false
+  "notified_new": true
  },
  "2015122300021058": {
   "id": "2015122300021058",
