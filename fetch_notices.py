@@ -38,6 +38,10 @@ STATUSES = ["공고중", "접수중"]
 PAGE_SIZE = 50
 KEEP_DAYS = 14  # 종료 후 이 기간까지 캘린더에 남김
 
+# 맞춤 공고 키워드: 공고명 또는 유형에 하나라도 들어 있으면 '맞춤 공고'.
+# 캘린더는 기본으로 맞춤 공고만 보여주고, 알림도 맞춤 공고에만 보냅니다. (비우면 전부 맞춤으로 취급)
+KEYWORDS = ["청년", "신혼"]
+
 DEBUG = "--debug" in sys.argv
 TEST_MAIL = "--test-mail" in sys.argv
 _debug_saved = set()
@@ -221,6 +225,13 @@ def notify(subject, html, md):
     return "GitHub 이슈"
 
 
+def is_match(r):
+    if not KEYWORDS:
+        return True
+    text = f"{r.get('name', '')} {r.get('type', '')}"
+    return any(k in text for k in KEYWORDS)
+
+
 def notice_rows_md(recs):
     out = []
     for r in recs:
@@ -244,8 +255,9 @@ def alert(store, today):
     tomorrow = today + timedelta(days=1)
     due = [r for r in store.values()
            if r["start"] and today.isoformat() <= r["start"] <= tomorrow.isoformat()
-           and not r["notified_start"]]
-    unknown = [r for r in store.values() if not r["start"] and not r["notified_new"]]
+           and not r["notified_start"] and is_match(r)]
+    unknown = [r for r in store.values()
+               if not r["start"] and not r["notified_new"] and is_match(r)]
     if not due and not unknown:
         print("보낼 알림 없음")
         return
@@ -275,8 +287,8 @@ def alert(store, today):
 def render(store, now):
     records = sorted(store.values(), key=lambda r: r["start"] or r["posted"] or "")
     public = [{k: r[k] for k in ("id", "org", "name", "region", "type", "status",
-                                 "posted", "start", "end", "url")} for r in records]
-    meta = {"updated": now.strftime("%Y-%m-%d %H:%M")}
+                                 "posted", "start", "end", "url")} | {"match": is_match(r)} for r in records]
+    meta = {"updated": now.strftime("%Y-%m-%d %H:%M"), "keywords": KEYWORDS}
     html = TEMPLATE.read_text(encoding="utf-8")
     dump = lambda o: json.dumps(o, ensure_ascii=False).replace("</", "<\\/")
     html = html.replace("/*DATA*/[]", dump(public)).replace("/*META*/{}", dump(meta))
