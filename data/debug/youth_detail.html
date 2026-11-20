@@ -1,0 +1,799 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+		
+		
+	
+
+	
+		
+		
+		
+		
+		
+	
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=yes,initial-scale=1.0,maximum-scale=10,minimum-scale=1.0">
+
+	<meta name="description" content="청년안심주택">
+	<meta name="Keyword" content="청년안심주택">
+	<meta property="og:site_name" content="청년안심주택">
+	
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="청년안심주택">
+	<meta property="og:description" content="청년안심주택">
+	<meta property="og:Keyword" content="청년안심주택">
+	<meta property="og:url" content="https://soco.seoul.go.kr/youth/main/main.do">
+	<meta property="og:url" content="">
+	
+	<link rel="stylesheet" href="/resources/common/css/reset.css">
+    <link rel="stylesheet" href="/resources/youth/css/style.css">
+    <link rel="stylesheet" href="/resources/youth/css/sub_style.css">
+    <link rel="stylesheet" href="/resources/youth/css/bbs.css">
+    <link rel="stylesheet" type="text/css" href="/resources/youth/css/slick.css">
+    <link rel="stylesheet" href="/resources/youth/css/responsive.css">
+    <link rel="stylesheet" href="/resources/youth/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/resources/youth/css/bootstrap-datepicker.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/youth/img/main/favicon.ico">
+
+    <title>모집공고 | 주택찾기 | </title>
+
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-222727054-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-222727054-1');
+	</script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script src="https://www.seoul.go.kr/seoulgnb/gnb.js"></script>
+    <script src="/resources/youth/js/jquery-3.6.0.min.js"></script>
+    <script src="/resources/youth/js/jquery-ui.min.js"></script>
+    <!-- <script src="/resources/youth/js/bootstrap-datepicker.js"></script> -->
+    <script src="/resources/youth/js/slick.min.js"></script>
+    <script src="/resources/youth/js/main.js"></script>
+
+	<script src="/resources/common/js/address.js?dt=20211115"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<!--<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?&amp;submodules=panorama,geocoder,drawing,visualization"></script>-->
+	<!--<script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId="></script>-->
+ 	
+	<script src="/cheditor/cheditor.js"></script>
+</head>
+<body> 
+<section id="wrap">
+	<dl class="accessibilityWrap">
+		<dt class="hide"><strong>바로가기 메뉴</strong></dt>
+		<dd><a href="#cont">본문 바로가기</a></dd>
+		<dd><a href="#top_nav">주메뉴 바로가기</a></dd>
+	</dl>
+	<div id='seoul-common-gnb'></div>
+	<script type="application/ld+json">
+{
+ "@context": "http://schema.org",
+ "@type": "Organizaion",
+ "name": "청년안심주택",
+ "url": "https://soco.seoul.go.kr",
+ "sameAs": [
+   "https://blog.naver.com/seoul_youth_house",
+   "https://www.facebook.com/2030.house",
+   "https://www.instagram.com/seoul_youth_house/?hl=ko"
+ ]
+} 
+</script>
+
+  <script>
+		(function() {
+		    // 검사할 변수 이름
+		    var paramName = 'searchKeyword';
+		
+		    // 전역 객체/쿼리스트링에서 값 가져오기
+		    var value = window[paramName] || new URLSearchParams(window.location.search).get(paramName);
+		
+		    if (value) {
+		        // XSS 위험 요소 제거
+		        value = value.replace(/<script.*?>.*?<\/script>/gi, '')  // 스크립트 태그 제거
+		                     .replace(/<\/?[^>]+(>|$)/g, '')              // 모든 HTML 태그 제거
+		                     .replace(/["']/g, '');                       // 따옴표 제거
+		        window[paramName] = value; // 안전한 값으로 덮어쓰기
+		    }
+		})();
+		</script>
+<div class="header">
+<span class="top_bg"></span>
+	<div class="topWrap">
+		<!-- 로고 -->
+		<h1 class="topLogo">
+			<a href="/youth/main/main.do"><span class="hide">청년안심주택</span></a>
+        </h1>
+		<!-- 메인메뉴 -->
+		<nav id="top_nav" class="mainNav">
+			<ul class="depth1">
+				<li><a href="/youth/main/contents.do?menuNo=400012" >청년안심주택?</a>
+	
+							<ul class="depth2">
+									<li>
+											<a href="/youth/main/contents.do?menuNo=400012" title="사업소개 페이지이동" class="" >사업소개</a>
+												</li>
+									<li>
+											<a href="/youth/main/contents.do?menuNo=400013" title="센터소개 페이지이동" class="" >센터소개</a>
+												</li>
+									<li>
+											<a href="/youth/main/contents.do?menuNo=400014" title="공급현황 및 계획 페이지이동" class="" >공급현황 및 계획</a>
+												</li>
+									<li>
+											<a href="/youth/pgm/home/yohome/supportYouth1.do?menuNo=400039" title="입주자격안내 페이지이동" class="" >입주자격안내</a>
+												</li>
+									<li>
+											<a href="/youth/main/contents.do?menuNo=400010" title="입주신청절차 페이지이동" class="" >입주신청절차</a>
+												</li>
+									</ul>
+							</li>
+					<li><a href="/youth/pgm/home/yohome/list.do?menuNo=400002" >주택찾기</a>
+	
+							<ul class="depth2">
+									<li>
+											<a href="/youth/pgm/home/yohome/list.do?menuNo=400002" title="단지별 정보 페이지이동" class="" >단지별 정보</a>
+												</li>
+									<li>
+											<a href="/youth/bbs/BMSR00015/list.do?menuNo=400008" title="모집공고 페이지이동" class="active" >모집공고</a>
+												</li>
+									<li>
+											<a href="/youth/pgm/home/yohome/compareSearchList.do?menuNo=400040" title="단지비교검색 페이지이동" class="" >단지비교검색</a>
+												</li>
+									</ul>
+							</li>
+					<li><a href="/youth/main/contents.do?menuNo=400016" >금융지원</a>
+	
+							<ul class="depth2">
+									<li>
+											<a href="/youth/main/contents.do?menuNo=400021" title="금융지원 안내 페이지이동" class="" >금융지원 안내</a>
+												</li>
+									<li>
+											<a href="/youth/main/contents.do?menuNo=400023" title="신혼부부 임차보증금 이자지원 페이지이동" class="" >신혼부부 임차보증금 이자지원</a>
+												</li>
+									<li>
+											<a href="/youth/main/contents.do?menuNo=400024" title="청년 임차보증금 이자지원 페이지이동" class="" >청년 임차보증금 이자지원</a>
+												</li>
+									<li>
+											<a href="/youth/main/contents.do?menuNo=400025" title="서울시 청년월세지원 페이지이동" class="" >서울시 청년월세지원</a>
+												</li>
+									</ul>
+							</li>
+					<li><a href="/youth/bbs/BMSR00013/list.do?menuNo=400018" >고객센터</a>
+	
+							<ul class="depth2">
+									<li>
+											<a href="/youth/bbs/BMSR00013/list.do?menuNo=400018" title="공지사항 페이지이동" class="" >공지사항</a>
+												</li>
+									<li>
+											<a href="/youth/bbs/BMSR00174/list.do?menuNo=400043" title="정보마당 페이지이동" class="" >정보마당</a>
+												</li>
+									<li>
+											<a href="/youth/bbs/BMSR00020/list.do?menuNo=400019" title="FAQ 페이지이동" class="" >FAQ</a>
+												</li>
+									<li>
+											<a href="/youth/main/contents.do?menuNo=400044" title="민원원스톱 페이지이동" class="" >민원원스톱</a>
+												</li>
+									</ul>
+							</li>
+					</ul>
+		</nav><!-- /Top Nav end -->
+
+		<!-- 사이드메뉴 -->
+		<div class="mainGNB pc_only">
+			<a href="/youth/member-login/login.do?menuNo=400029" class="gnb_login">로그인</a>
+			<button class="gnb_menu btn_menu"><span>메뉴</span></button>
+		</div>
+		<button class="gnb_menu btn_menu tablet"><span>메뉴</span></button>
+
+	</div><!-- /topWrap end -->
+</div>
+
+<div class="mobileNav">
+	<div class="top">
+		<div class="moLogo">
+			<a href="/youth/main/main.do"><span class="hide">청년안심주택</span></a>
+			<button class="close btn_menu active"><span>닫기</span></button>
+		</div>
+		<ul class="etc">
+			<li>
+				<a href="/youth/member-login/login.do?menuNo=400029" class="gnb_login">로그인</a>
+				</li>
+			<li>
+				<a href="/youth/member-join/joinType.do?menuNo=400031">회원가입</a>
+				</li>
+		</ul>
+	</div>
+	<ul class="lnb_m">
+		<li>
+		<a href="/youth/main/contents.do?menuNo=400012" >청년안심주택?<span>more</span></a>
+
+		<ul class="depth">
+				<li>
+					<a href="/youth/main/contents.do?menuNo=400012" title="사업소개 페이지이동" class="" >사업소개</a>
+					</li>
+			<li>
+					<a href="/youth/main/contents.do?menuNo=400013" title="센터소개 페이지이동" class="" >센터소개</a>
+					</li>
+			<li>
+					<a href="/youth/main/contents.do?menuNo=400014" title="공급현황 및 계획 페이지이동" class="" >공급현황 및 계획</a>
+					</li>
+			<li>
+					<a href="/youth/pgm/home/yohome/supportYouth1.do?menuNo=400039" title="입주자격안내 페이지이동" class="" >입주자격안내</a>
+					</li>
+			<li>
+					<a href="/youth/main/contents.do?menuNo=400010" title="입주신청절차 페이지이동" class="" >입주신청절차</a>
+					</li>
+			</ul>
+		</li>
+		<li>
+		<a href="/youth/pgm/home/yohome/list.do?menuNo=400002" >주택찾기<span>more</span></a>
+
+		<ul class="depth">
+				<li>
+					<a href="/youth/pgm/home/yohome/list.do?menuNo=400002" title="단지별 정보 페이지이동" class="" >단지별 정보</a>
+					</li>
+			<li>
+					<a href="/youth/bbs/BMSR00015/list.do?menuNo=400008" title="모집공고 페이지이동" class="active" >모집공고</a>
+					</li>
+			<li>
+					<a href="/youth/pgm/home/yohome/compareSearchList.do?menuNo=400040" title="단지비교검색 페이지이동" class="" >단지비교검색</a>
+					</li>
+			</ul>
+		</li>
+		<li>
+		<a href="/youth/main/contents.do?menuNo=400016" >금융지원<span>more</span></a>
+
+		<ul class="depth">
+				<li>
+					<a href="/youth/main/contents.do?menuNo=400021" title="금융지원 안내 페이지이동" class="" >금융지원 안내</a>
+					</li>
+			<li>
+					<a href="/youth/main/contents.do?menuNo=400023" title="신혼부부 임차보증금 이자지원 페이지이동" class="" >신혼부부 임차보증금 이자지원</a>
+					</li>
+			<li>
+					<a href="/youth/main/contents.do?menuNo=400024" title="청년 임차보증금 이자지원 페이지이동" class="" >청년 임차보증금 이자지원</a>
+					</li>
+			<li>
+					<a href="/youth/main/contents.do?menuNo=400025" title="서울시 청년월세지원 페이지이동" class="" >서울시 청년월세지원</a>
+					</li>
+			</ul>
+		</li>
+		<li>
+		<a href="/youth/bbs/BMSR00013/list.do?menuNo=400018" >고객센터<span>more</span></a>
+
+		<ul class="depth">
+				<li>
+					<a href="/youth/bbs/BMSR00013/list.do?menuNo=400018" title="공지사항 페이지이동" class="" >공지사항</a>
+					</li>
+			<li>
+					<a href="/youth/bbs/BMSR00174/list.do?menuNo=400043" title="정보마당 페이지이동" class="" >정보마당</a>
+					</li>
+			<li>
+					<a href="/youth/bbs/BMSR00020/list.do?menuNo=400019" title="FAQ 페이지이동" class="" >FAQ</a>
+					</li>
+			<li>
+					<a href="/youth/main/contents.do?menuNo=400044" title="민원원스톱 페이지이동" class="" >민원원스톱</a>
+					</li>
+			</ul>
+		</li>
+		<li>
+		<a href="/youth/member-login/login.do?menuNo=400030" >회원<span>more</span></a>
+
+		<ul class="depth">
+				<li>
+					<a href="/youth/member-login/login.do?menuNo=400030" title="로그인 페이지이동" class="" >로그인</a>
+					</li>
+			<li>
+					<a href="/youth/member-join/joinType.do?menuNo=400031" title="회원가입 페이지이동" class="" >회원가입</a>
+					</li>
+			<li>
+					<a href="/youth/member-search/searchId.do?menuNo=400032" title="아이디찾기 페이지이동" class="" >아이디찾기</a>
+					</li>
+			<li>
+					<a href="/youth/member-search/searchPwdByHint.do?menuNo=400034" title="비밀번호찾기 페이지이동" class="" >비밀번호찾기</a>
+					</li>
+			<li>
+					<a href="/youth/main/contents.do?menuNo=400036" title="개인정보처리방침 페이지이동" class="" >개인정보처리방침</a>
+					</li>
+			</ul>
+		</li>
+		<li>
+		<a href="/youth/mypage/myInfo.do?menuNo=400035" >마이페이지<span>more</span></a>
+
+		</li>
+		</ul>
+</div>
+<div class="mobileNav_bg popBg"></div>
+
+<div class="sitemap">
+	<div class="sitemap-side">
+		<p>SITEMAP</p>
+	</div>
+	<div class="sitemap-cont">
+	    <h1 class="tit">사이트맵</h1>
+		<ul class="menu">
+			<li>
+				<p class="depth1">청년안심주택?</p>
+				<ul class="depth2">
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400012" title="사업소개 페이지이동" class="" >사업소개</a>
+									</li>
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400013" title="센터소개 페이지이동" class="" >센터소개</a>
+									</li>
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400014" title="공급현황 및 계획 페이지이동" class="" >공급현황 및 계획</a>
+									</li>
+						<li>
+								<a href="/youth/pgm/home/yohome/supportYouth1.do?menuNo=400039" title="입주자격안내 페이지이동" class="" >입주자격안내</a>
+									</li>
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400010" title="입주신청절차 페이지이동" class="" >입주신청절차</a>
+									</li>
+						</ul>
+				</li>
+			<li>
+				<p class="depth1">주택찾기</p>
+				<ul class="depth2">
+						<li>
+								<a href="/youth/pgm/home/yohome/list.do?menuNo=400002" title="단지별 정보 페이지이동" class="" >단지별 정보</a>
+									</li>
+						<li>
+								<a href="/youth/bbs/BMSR00015/list.do?menuNo=400008" title="모집공고 페이지이동" class="active" >모집공고</a>
+									</li>
+						<li>
+								<a href="/youth/pgm/home/yohome/compareSearchList.do?menuNo=400040" title="단지비교검색 페이지이동" class="" >단지비교검색</a>
+									</li>
+						</ul>
+				</li>
+			<li>
+				<p class="depth1">금융지원</p>
+				<ul class="depth2">
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400021" title="금융지원 안내 페이지이동" class="" >금융지원 안내</a>
+									</li>
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400023" title="신혼부부 임차보증금 이자지원 페이지이동" class="" >신혼부부 임차보증금 이자지원</a>
+									</li>
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400024" title="청년 임차보증금 이자지원 페이지이동" class="" >청년 임차보증금 이자지원</a>
+									</li>
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400025" title="서울시 청년월세지원 페이지이동" class="" >서울시 청년월세지원</a>
+									</li>
+						</ul>
+				</li>
+			<li>
+				<p class="depth1">고객센터</p>
+				<ul class="depth2">
+						<li>
+								<a href="/youth/bbs/BMSR00013/list.do?menuNo=400018" title="공지사항 페이지이동" class="" >공지사항</a>
+									</li>
+						<li>
+								<a href="/youth/bbs/BMSR00174/list.do?menuNo=400043" title="정보마당 페이지이동" class="" >정보마당</a>
+									</li>
+						<li>
+								<a href="/youth/bbs/BMSR00020/list.do?menuNo=400019" title="FAQ 페이지이동" class="" >FAQ</a>
+									</li>
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400044" title="민원원스톱 페이지이동" class="" >민원원스톱</a>
+									</li>
+						</ul>
+				</li>
+			<li>
+				<p class="depth1">회원</p>
+				<ul class="depth2">
+						<li>
+								<a href="/youth/member-login/login.do?menuNo=400030" title="로그인 페이지이동" class="" >로그인</a>
+									</li>
+						<li>
+								<a href="/youth/member-join/joinType.do?menuNo=400031" title="회원가입 페이지이동" class="" >회원가입</a>
+									</li>
+						<li>
+								<a href="/youth/member-search/searchId.do?menuNo=400032" title="아이디찾기 페이지이동" class="" >아이디찾기</a>
+									</li>
+						<li>
+								<a href="/youth/member-search/searchPwdByHint.do?menuNo=400034" title="비밀번호찾기 페이지이동" class="" >비밀번호찾기</a>
+									</li>
+						<li>
+								<a href="/youth/main/contents.do?menuNo=400036" title="개인정보처리방침 페이지이동" class="" >개인정보처리방침</a>
+									</li>
+						</ul>
+				</li>
+			<li>
+				<p class="depth1">마이페이지</p>
+				</li>
+			</ul>
+		<button type="button" class="sitemap-close">닫기</button>
+	</div>
+</div>
+<div id="cont">
+
+
+   	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="location">
+    <ul class="inner">
+
+        <li class="home"><a href="/youth/main/main.do">메인으로 이동</a></li>
+         <!-- 로그인 O  -->
+		
+		
+		<!-- 로그인 X  -->
+		
+        
+        <li class="location__menu">
+            <a href="#" title="주택찾기 페이지 이동">주택찾기</a>
+            <ul class="sub">
+              
+			  <li><a href="/youth/main/contents.do?menuNo=400012"  title="청년안심주택? 페이지 이동">청년안심주택?</a></li>
+			  
+			  <li><a href="/youth/pgm/home/yohome/list.do?menuNo=400002"  title="주택찾기 페이지 이동">주택찾기</a></li>
+			  
+			  <li><a href="/youth/main/contents.do?menuNo=400016"  title="금융지원 페이지 이동">금융지원</a></li>
+			  
+			  <li><a href="/youth/bbs/BMSR00013/list.do?menuNo=400018"  title="고객센터 페이지 이동">고객센터</a></li>
+			  
+			  <li><a href="/youth/member-login/login.do?menuNo=400030"  title="회원 페이지 이동">회원</a></li>
+			  
+			  <li><a href="/youth/mypage/myInfo.do?menuNo=400035"  title="마이페이지 페이지 이동">마이페이지</a></li>
+			  
+            </ul>
+        </li>
+        
+        
+			<li class="location__menu depth">
+				<a href="#" title="모집공고 페이지 이동">모집공고</a>
+				<ul class="sub">
+					
+						<li><a href="/youth/pgm/home/yohome/list.do?menuNo=400002"  title="단지별 정보 페이지 이동">단지별 정보</a></li>
+					
+						<li><a href="/youth/bbs/BMSR00015/list.do?menuNo=400008"  title="모집공고 페이지 이동">모집공고</a></li>
+					
+						<li><a href="/youth/pgm/home/yohome/compareSearchList.do?menuNo=400040"  title="단지비교검색 페이지 이동">단지비교검색</a></li>
+					
+				</ul>
+			</li>
+		
+		
+
+        <li class="location__quick print">
+			<button type="button" class="btn_sub btn_print" onclick="window.print();">인쇄하기</button>
+        </li>
+        <li class="location__quick share">
+        	<ul class="share__depth">
+    			<li class="share__btn"><button type="button" title="공유하기 열기"><span class="hide">공유하기</span></button></li>
+    			<li class="share__sns facebook"><button type="button" title="새 창 열림"><span class="hide">페이스북 공유하기</span></button></li>
+    			<li class="share__sns blog"><button type="button" title="새 창 열림"><span class="hide">네이버 블로그 공유하기</span></button></li>
+    			<li class="share__sns kakao"><button type="button" title="새 창 열림"><span class="hide">카카오톡 공유하기</span></button></li>
+        	</ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+/*공유하기*/
+function copyClip(url){
+	var $temp = $('<input>');
+	$('body').append($temp);
+	$temp.val(url).select();
+	document.execCommand('copy');
+	$temp.remove();
+	alert('URL이 복사되었습니다.');
+}
+
+
+$('.share__depth .blog button').click(function(event) {
+	event.preventDefault();
+	var url = "http://share.naver.com/web/shareView.nhn?url=" + titl + "&url=" + link;
+	windowOpen (url, 800, 400, 'yes');
+});
+$('.share__depth .facebook button').click(function(event) {
+	event.preventDefault();
+	var url = "http://www.facebook.com/sharer.php?u=" + link + "&t=" + titl;
+	windowOpen (url, 900, 450, 'no');
+});
+
+/* kakao */
+titl = document.title;
+titl = titl.replace (/'/gi,"´");
+titl = titl.replace (/"/gi,"˝");
+titl = encodeURIComponent(titl);
+var link = encodeURIComponent(location.href);
+
+Kakao.init('fdf749c4279e809040327b7d30163614');
+console.log(Kakao.isInitialized());
+
+$('.share__depth .kakao button').click(function(event) {
+	Kakao.Link.sendDefault({
+		objectType: 'feed',
+		content: {
+			title: '청년안심주택',
+			description: '청년안심주택',
+			imageUrl: encodeURIComponent(window.location.href) + '/resources/common/img/shareImg_yo.png',
+			link: {
+				mobileWebUrl: window.location.href,
+				webUrl: window.location.href
+			}
+		},
+		buttons: [
+		{
+			title: '상세보기',
+			link: {
+				mobileWebUrl: window.location.href,
+				webUrl: window.location.href
+			}
+		}]
+	});
+});
+
+function windowOpen () {
+	var nUrl;
+	var nWidth;
+	var nHeight;
+	var nLeft;
+	var nTop;
+	var nScroll;
+
+	nUrl = arguments[0];
+	nWidth = arguments[1];
+	nHeight = arguments[2];
+	nScroll = (arguments.length > 3 ? arguments[3] : "no");
+	nLeft = (arguments.length > 4 ? arguments[4] : (screen.width/2 - nWidth/2));
+	nTop = (arguments.length > 5 ? arguments[5] : (screen.height/2 - nHeight/2));
+
+	winopen=window.open(nUrl, 'sns_win', "left="+nLeft+",top="+nTop+",width="+nWidth+",height="+nHeight+",scrollbars="+nScroll+",toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no");
+}
+</script>
+
+    <div class="subpage_content" id="printArea">
+		
+		
+		
+			
+			
+			
+		
+		
+			
+
+
+
+
+
+<script>
+$(document).ready(function() {
+    // Your code goes here
+    var a = $('#optn1').val();
+    var b ="";
+    var c ="2026-11-03";
+    console.log(a);
+    console.log(b);
+    console.log(c);
+});
+function doDel(){
+	if (confirm("삭제 하시겠습니까?")) {
+		var form = document.createFrm;
+		form.action = "delete.do";
+		form.submit();
+	}
+}
+
+
+</script>
+
+<div class="subpage_content">
+	<div class="layout">
+		<div class="board_view">
+			<div class="view_info">
+				<p class="subject">[민간임대] 효창공원앞역 해링턴 플레이스 용산 리버뷰 최초모집공고</p>
+				<ul class="view_data">
+					<li><span class="title">담당부서/사업자</span>(주)이지스용산청년주택위탁관리부동산투자회사</li>
+					<li><span class="title">공고게시일</span>2026-11-03</li>
+					<li><span class="title">청약신청일</span>2026-11-12</li>
+				</ul>
+				<ul class="view_data">
+				<li><span class="title">카테고리</span>
+					
+						<option value="01">  </option>
+					
+						<option value="02">  </option>
+					
+						<option value="03">  </option>
+					
+						<option value="04">  </option>
+					
+						<option value="05">  </option>
+					
+						<option value="06">  </option>
+					
+						<option value="07">  </option>
+					
+						<option value="08">  </option>
+					
+						<option value="09">  </option>
+					
+						<option value="10">  </option>
+					
+						<option value="11">  </option>
+					
+						<option value="12">  </option>
+					
+						<option value="13">  </option>
+					
+						<option value="14">  </option>
+					
+						<option value="15">  </option>
+					
+						<option value="16">  </option>
+					
+						<option value="17">  </option>
+					
+						<option value="18">  </option>
+					
+						<option value="19">  </option>
+					
+						<option value="20">  </option>
+					
+						<option value="21"> 용산구 </option>
+					
+						<option value="22">  </option>
+					
+						<option value="23">  </option>
+					
+						<option value="24">  </option>
+					
+						<option value="25">  </option>
+					
+				</li>
+				</ul> 
+				<ul class="view_data">
+					<li>
+						<span class="title">첨부파일</span>
+						<span class="file">
+							
+							<span class="file">
+								
+									<a style="display: inline-block !important; margin-bottom:5px;" href="/coHouse/cmmn/file/fileDown.do?atchFileId=f0080708c59b4f6c89a0d4e53c0da80e&fileSn=1"  >민간_261103_효창공원앞역_해링턴플레이스 용산 리버뷰_청년안심주택 최초모집공고문.pdf</a>
+									
+									<a style="display: inline-block !important; margin-bottom:5px;" href="javascript:void(0);" onclick="previewAjax('/coHouse/cmmn/file/fileDown.do?atchFileId=f0080708c59b4f6c89a0d4e53c0da80e&fileSn=1','민간_261103_효창공원앞역_해링턴플레이스 용산 리버뷰_청년안심주택 최초모집공고문.pdf')" title="바로보기 – 새 창">
+									<img src="https://viewstory.net/resources/preview/image/common/view_icon.png" alt="바로보기 버튼" />
+									</a>
+									<a style="display: inline-block !important; margin-bottom:5px;" href="javascript:void(0);" onclick="preListen('/coHouse/cmmn/file/fileDown.do?atchFileId=f0080708c59b4f6c89a0d4e53c0da80e&fileSn=1','민간_261103_효창공원앞역_해링턴플레이스 용산 리버뷰_청년안심주택 최초모집공고문.pdf')" title="바로듣기 – 새 창">
+									<img src="https://viewstory.net/resources/preview/image/common/speaker_icon.png" alt="바로듣기 버튼" />
+									</a>
+								
+							</span>
+						
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div><!-- board_view -->
+		<div class="board_cont"><p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">효창공원앞역 해링턴 플레이스 용산 리버뷰 청년안심주택 입주자 최초모집공고문(공공지원민간임대)을 붙임과 같이 게시합니다.&nbsp;</p>
+<p><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px; margin: 0px; padding: 0px; box-sizing: border-box;">자세한 내용은 첨부파일의 모집공고문을 확인하시기 바랍니다.</span></p>
+<p><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;"></span></p>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 18px;"></span></h2>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">&nbsp;</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;"><b style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 20px;">[단지개요]</b></p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■단지명 : 해링턴 플레이스 용산 리버뷰</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■주택위치 : 서울특별시 용산구 효창원로 80 (6호선, 경의중앙선 효창공원앞역 3번 출구)</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■공급호수 : 총 988세대 중 공공지원민간임대 635세대 (특별공급 128세대, 일반공급 507세대)</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■사업주체 : (주)이지스용산청년주택위탁관리부동산투자회사</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■시공사 : 효성중공업(주)</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">&nbsp;</p>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 20px;">[공급일정]</span></h2>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■모집공고 : ‘26. 11. 03. (화)</p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="letter-spacing: -1px; font-family: nanumsquareotf_ac; font-size: medium; color: #ff00ff;"><b>■청약신청 : ‘26. 11. 12. (목) 00:00 ~ 11. 15. (일) 24:00</b></span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■서류심사 대상자 발표 : </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 11. 17. (화) 17:00</span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■당첨자 서류 제출(이메일) : </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 11. 18. (수)&nbsp;</span><span style="letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">~ 11. 19. (목)</span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">■세대 확인: </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 11. 20. (금) ~ 11. 22. (일)</span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">■계약체결: </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 11. 23. (월) ~ 11. 29. (일)</span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">■입주지정기간(예정) : </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 12. 07. (월) ~ 27. 01. 15. (금)</span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">&nbsp;</span></p>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 20px;">[청약신청]&nbsp;</span></h2>
+<p style="padding: 0px; box-sizing: border-box;"><font color="#333333" face="NanumSquareOTF_ac"><span style="letter-spacing: -1px;"><font size="3">■ 청약신청 페이지 : </font><span style="font-size: 18px;"><b><u><span style="color: #0000ff;"><a href="https://yongsan2030.com" target="_blank" title="해링턴플레이스용산리버뷰 최초모집 신청"><span style="font-size: 18px;">https://yongsan2030.com</span></a></span></u></b></span></span></font></p>
+<p style="padding: 0px; box-sizing: border-box;"><font color="#333333" face="NanumSquareOTF_ac" size="3"><span style="letter-spacing: -1px;">■ 문의전화 : </span></font><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">02-701-1090</span></p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■ 운영시간 : 월~금 10:00~17:00 (점심시간 : 12:00~13:00)</p>
+</div>
+		<input type="hidden" name="optn1" id="optn1" value="2026-11-03">
+		<ul class="board_list">
+			<li class="next">
+			
+			
+				<p class="title"><strong>다음글</strong><a href="./view.do?optn1=2026-11-03&boardId=6719&menuNo=400008&pageIndex=&searchCondition=&searchKeyword=">[민간임대] 송정역 케이제이타워 최초모집공고</a></p>
+				<p class="date">2026-10-29</p>
+			
+			
+			
+			</li>
+			<li class="prev">
+			
+			
+				<p class="title"><strong>이전글</strong><a href="./view.do?optn1=2026-11-03&boardId=6717&menuNo=400008&pageIndex=&searchCondition=&searchKeyword=">[민간임대] 연신내역 루미노816 추가모집공고</a></p>
+				<p class="date">2026-10-29</p>
+			
+			
+			
+			</li>
+		</ul>
+		<div class="btnWrap3">
+          <a href="#" class="btn-purple btn-wide" onclick="goList();">목록</a>
+          
+        </div>
+	</div>
+</div>
+
+<script>
+	function goList(){
+		if(""==""){
+			location.href="/youth/bbs/BMSR00015/list.do?menuNo=400008&pageIndex=1&searchCondition=&searchKeyword=";
+		}else{
+			location.href="/youth/bbs/BMSR00015/list.do?menuNo=400008&pageIndex=&searchCondition=&searchKeyword=";
+		}
+		
+	}
+	
+	function previewAjax(file_url, file_name) {
+		
+		var apiKey = "RBKLXXZDMUBCHNHOEKZTMG";
+		var cc = "sg_094";
+		var fileUrl = encodeURIComponent(window.location.protocol+"//"+window.location.host+file_url);
+		var fileName = encodeURIComponent(file_name);
+		
+		
+		
+		window.open("https://seoul.viewstory.net/previewAjax.do?apikey={0}&cc={1}&url={2}&fileName={3}".format(apiKey, cc, fileUrl, fileName),"a", "width=1200, height=1000, left=100, top=50");
+		
+	}
+	
+	function preListen(file_url, file_name) {
+		var apiKey = "RBKLXXZDMUBCHNHOEKZTMG";
+		var cc = "sg_094";
+		var fileUrl = encodeURIComponent(window.location.protocol+"//"+window.locat
