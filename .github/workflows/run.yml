@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: cheongyak
@@ -39,6 +40,7 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CAL_URL: https://20kjh02.github.io/cheongyak-calendar/
         run: python fetch_notices.py ${{ inputs.debug && '--debug' || '' }} ${{ inputs.test_mail && '--test-mail' || '' }}
 
