@@ -200,7 +200,7 @@
   "name": "인천산곡 A1블록 행복주택(산곡솔마루아파트) 예비입주자 모집",
   "region": "인천",
   "type": "행복주택",
-  "status": "공고중",
+  "status": "접수중",
   "posted": "2026-11-11",
   "close": "2026-11-25",
   "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021052&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
@@ -266,7 +266,7 @@
   "url": "https://www.i-sh.co.kr/main/lay2/program/S1T294C295/www/brd/m_241/view.do?seq=313225",
   "start": "2026-11-24",
   "end": "2026-11-24",
-  "notified_start": false,
+  "notified_start": true,
   "notified_new": false
  },
  "SH-313424": {
