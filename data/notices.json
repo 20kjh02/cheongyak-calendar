@@ -281,7 +281,7 @@
   "url": "https://www.i-sh.co.kr/main/lay2/program/S1T294C295/www/brd/m_241/view.do?seq=313424",
   "start": "2026-11-25",
   "end": "2026-12-04",
-  "notified_start": false,
+  "notified_start": true,
   "notified_new": false
  },
  "SH-313268": {
@@ -626,7 +626,7 @@
   "url": "https://soco.seoul.go.kr/youth/bbs/BMSR00015/view.do?boardId=6803&menuNo=400008",
   "start": "2026-11-25",
   "end": "2026-11-25",
-  "notified_start": false,
+  "notified_start": true,
   "notified_new": false
  },
  "YS-6804": {
@@ -672,6 +672,51 @@
   "start": "2026-11-23",
   "end": "2026-11-23",
   "notified_start": true,
+  "notified_new": false
+ },
+ "2015122300021131": {
+  "id": "2015122300021131",
+  "org": "LH",
+  "name": "[정정공고]서울삼전,강동천호,LH수서1,LH수서2 행복주택 예비입주자 모집공고",
+  "region": "서울",
+  "type": "행복주택",
+  "status": "공고중",
+  "posted": "2026-11-23",
+  "close": "2026-12-01",
+  "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021131&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+  "start": "2026-11-30",
+  "end": "2026-12-11",
+  "notified_start": false,
+  "notified_new": false
+ },
+ "2015122300021124": {
+  "id": "2015122300021124",
+  "org": "LH",
+  "name": "[선계약후검증]이천갈산3 국민임대주택 추가 모집",
+  "region": "경기",
+  "type": "국민임대",
+  "status": "공고중",
+  "posted": "2026-11-24",
+  "close": "2026-12-04",
+  "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021124&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+  "start": "2026-12-02",
+  "end": "2026-12-14",
+  "notified_start": false,
+  "notified_new": false
+ },
+ "2015122300021130": {
+  "id": "2015122300021130",
+  "org": "LH",
+  "name": "수원시지역 호매실21단지, 고등2단지 행복주택 입주자격완화[선계약 후검증] 입주자 모집(2026.11.23)",
+  "region": "경기",
+  "type": "행복주택",
+  "status": "공고중",
+  "posted": "2026-11-23",
+  "close": "2026-12-04",
+  "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021130&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+  "start": "2026-12-03",
+  "end": "2026-12-14",
+  "notified_start": false,
   "notified_new": false
  }
 }
