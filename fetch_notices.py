@@ -40,7 +40,7 @@ KEEP_DAYS = 14  # 종료 후 이 기간까지 캘린더에 남김
 
 # 맞춤 공고 키워드: 공고명 또는 유형에 하나라도 들어 있으면 '맞춤 공고'.
 # 캘린더는 기본으로 맞춤 공고만 보여주고, 알림도 맞춤 공고에만 보냅니다. (비우면 전부 맞춤으로 취급)
-KEYWORDS = ["청년", "신혼"]
+KEYWORDS = ["청년", "신혼", "행복주택"]
 
 DEBUG = "--debug" in sys.argv
 TEST_MAIL = "--test-mail" in sys.argv
@@ -296,6 +296,31 @@ def render(store, now):
     OUT_HTML.write_text(html, encoding="utf-8")
 
 
+def debug_report(key, store):
+    """--debug 전용: 공고가 안 보이는 원인 파악용. 상태 필터 없이 LH 목록을 다시 조회해
+    '정정'/'예비' 공고가 어떤 상태값으로 내려오는지, 우리 저장소에 들어왔는지 출력."""
+    from collections import Counter
+    allrows = []
+    for cnp, region in REGIONS.items():
+        for page in range(1, 4):
+            data = call_api(LIST_URL, {"serviceKey": key, "PG_SZ": PAGE_SIZE, "PAGE": page,
+                                       "UPP_AIS_TP_CD": LEASE_TYPE, "CNP_CD": cnp}, f"probe_{cnp}")
+            found = [d for obj in walk(data) for d in
+                     (obj["dsList"] if isinstance(obj.get("dsList"), list) else [])]
+            allrows += found
+            if len(found) < PAGE_SIZE:
+                break
+    print("[진단] 상태 필터 없이 조회:", len(allrows), "건, 상태별", dict(Counter(d.get("PAN_SS") for d in allrows)))
+    for d in allrows:
+        name = d.get("PAN_NM") or ""
+        if "정정" in name or "예비" in name:
+            print(f"[진단]  [{d.get('PAN_SS')}] {name[:45]} | 공고일 {d.get('PAN_NT_ST_DT')} | 마감 {d.get('CLSG_DT')}"
+                  f" | 수집됨 {d.get('PAN_ID') in store}")
+    print("[진단] 저장된 공고 (기관|이름|접수시작|종료|맞춤)")
+    for r in sorted(store.values(), key=lambda r: r.get("start") or r.get("posted") or ""):
+        print(f"[진단]  {r.get('org')}|{r['name'][:30]}|{r.get('start')}|{r.get('end')}|{is_match(r)}")
+
+
 def main():
     now = datetime.now(KST)
     today = now.date()
@@ -333,6 +358,12 @@ def main():
         print(f"청년안심주택 {pages}건 확인, {n}건 반영")
     except Exception as e:  # 청년안심주택이 실패해도 나머지는 계속 처리
         print(f"청년안심주택 수집 실패 (나머지는 계속 진행): {type(e).__name__}: {e}")
+
+    if DEBUG:
+        try:
+            debug_report(key, store)
+        except Exception as e:
+            print(f"[진단] 실패: {type(e).__name__}: {e}")
 
     cutoff = (today - timedelta(days=KEEP_DAYS)).isoformat()
     store = {k: r for k, r in store.items()
