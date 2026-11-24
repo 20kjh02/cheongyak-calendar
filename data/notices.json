@@ -718,5 +718,20 @@
   "end": "2026-12-14",
   "notified_start": false,
   "notified_new": false
+ },
+ "YS-6833": {
+  "id": "YS-6833",
+  "org": "청년안심주택",
+  "name": "[민간임대] 돌곶이역 화랑어반트리움 최초모집공고",
+  "region": "서울",
+  "type": "민간임대 최초모집 (성북구)",
+  "status": "게시",
+  "posted": "2026-11-24",
+  "close": null,
+  "url": "https://soco.seoul.go.kr/youth/bbs/BMSR00015/view.do?boardId=6833&menuNo=400008",
+  "start": "2026-12-05",
+  "end": "2026-12-07",
+  "notified_start": false,
+  "notified_new": false
  }
 }

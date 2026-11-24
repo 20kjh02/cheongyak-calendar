@@ -111,24 +111,24 @@
  ]
 } 
 </script>
+ <script>
+(function() {
+    // 검사할 변수 이름
+    var paramName = 'searchKeyword';
 
-  <script>
-		(function() {
-		    // 검사할 변수 이름
-		    var paramName = 'searchKeyword';
-		
-		    // 전역 객체/쿼리스트링에서 값 가져오기
-		    var value = window[paramName] || new URLSearchParams(window.location.search).get(paramName);
-		
-		    if (value) {
-		        // XSS 위험 요소 제거
-		        value = value.replace(/<script.*?>.*?<\/script>/gi, '')  // 스크립트 태그 제거
-		                     .replace(/<\/?[^>]+(>|$)/g, '')              // 모든 HTML 태그 제거
-		                     .replace(/["']/g, '');                       // 따옴표 제거
-		        window[paramName] = value; // 안전한 값으로 덮어쓰기
-		    }
-		})();
-		</script>
+    // 전역 객체/쿼리스트링에서 값 가져오기
+    var value = window[paramName] || new URLSearchParams(window.location.search).get(paramName);
+
+    if (value) {
+        // XSS 위험 요소 제거
+        value = value.replace(/<script.*?>.*?<\/script>/gi, '')  // 스크립트 태그 제거
+                     .replace(/<\/?[^>]+(>|$)/g, '')              // 모든 HTML 태그 제거
+                     .replace(/["']/g, '');                       // 따옴표 제거
+        window[paramName] = value; // 안전한 값으로 덮어쓰기
+    }
+})();
+</script>
+
 <div class="header">
 <span class="top_bg"></span>
 	<div class="topWrap">
@@ -612,7 +612,7 @@ $(document).ready(function() {
     // Your code goes here
     var a = $('#optn1').val();
     var b ="";
-    var c ="2026-11-03";
+    var c ="2026-11-19";
     console.log(a);
     console.log(b);
     console.log(c);
@@ -632,11 +632,11 @@ function doDel(){
 	<div class="layout">
 		<div class="board_view">
 			<div class="view_info">
-				<p class="subject">[민간임대] 효창공원앞역 해링턴 플레이스 용산 리버뷰 최초모집공고</p>
+				<p class="subject">[민간임대] 광운대역 현대프라힐스 추가모집공고</p>
 				<ul class="view_data">
-					<li><span class="title">담당부서/사업자</span>(주)이지스용산청년주택위탁관리부동산투자회사</li>
-					<li><span class="title">공고게시일</span>2026-11-03</li>
-					<li><span class="title">청약신청일</span>2026-11-12</li>
+					<li><span class="title">담당부서/사업자</span>현대아산(주)</li>
+					<li><span class="title">공고게시일</span>2026-11-19</li>
+					<li><span class="title">청약신청일</span>2026-11-23</li>
 				</ul>
 				<ul class="view_data">
 				<li><span class="title">카테고리</span>
@@ -657,7 +657,7 @@ function doDel(){
 					
 						<option value="08">  </option>
 					
-						<option value="09">  </option>
+						<option value="09"> 노원구 </option>
 					
 						<option value="10">  </option>
 					
@@ -681,7 +681,7 @@ function doDel(){
 					
 						<option value="20">  </option>
 					
-						<option value="21"> 용산구 </option>
+						<option value="21">  </option>
 					
 						<option value="22">  </option>
 					
@@ -700,12 +700,12 @@ function doDel(){
 							
 							<span class="file">
 								
-									<a style="display: inline-block !important; margin-bottom:5px;" href="/coHouse/cmmn/file/fileDown.do?atchFileId=f0080708c59b4f6c89a0d4e53c0da80e&fileSn=1"  >민간_261103_효창공원앞역_해링턴플레이스 용산 리버뷰_청년안심주택 최초모집공고문.pdf</a>
+									<a style="display: inline-block !important; margin-bottom:5px;" href="/coHouse/cmmn/file/fileDown.do?atchFileId=78f3aa6df7454dad8367131ca942b47b&fileSn=1"  >민간_261119_광운대역_현대프라힐스_청년안심주택 추가모집공고문.pdf</a>
 									
-									<a style="display: inline-block !important; margin-bottom:5px;" href="javascript:void(0);" onclick="previewAjax('/coHouse/cmmn/file/fileDown.do?atchFileId=f0080708c59b4f6c89a0d4e53c0da80e&fileSn=1','민간_261103_효창공원앞역_해링턴플레이스 용산 리버뷰_청년안심주택 최초모집공고문.pdf')" title="바로보기 – 새 창">
+									<a style="display: inline-block !important; margin-bottom:5px;" href="javascript:void(0);" onclick="previewAjax('/coHouse/cmmn/file/fileDown.do?atchFileId=78f3aa6df7454dad8367131ca942b47b&fileSn=1','민간_261119_광운대역_현대프라힐스_청년안심주택 추가모집공고문.pdf')" title="바로보기 – 새 창">
 									<img src="https://viewstory.net/resources/preview/image/common/view_icon.png" alt="바로보기 버튼" />
 									</a>
-									<a style="display: inline-block !important; margin-bottom:5px;" href="javascript:void(0);" onclick="preListen('/coHouse/cmmn/file/fileDown.do?atchFileId=f0080708c59b4f6c89a0d4e53c0da80e&fileSn=1','민간_261103_효창공원앞역_해링턴플레이스 용산 리버뷰_청년안심주택 최초모집공고문.pdf')" title="바로듣기 – 새 창">
+									<a style="display: inline-block !important; margin-bottom:5px;" href="javascript:void(0);" onclick="preListen('/coHouse/cmmn/file/fileDown.do?atchFileId=78f3aa6df7454dad8367131ca942b47b&fileSn=1','민간_261119_광운대역_현대프라힐스_청년안심주택 추가모집공고문.pdf')" title="바로듣기 – 새 창">
 									<img src="https://viewstory.net/resources/preview/image/common/speaker_icon.png" alt="바로듣기 버튼" />
 									</a>
 								
@@ -716,39 +716,40 @@ function doDel(){
 				</ul>
 			</div>
 		</div><!-- board_view -->
-		<div class="board_cont"><p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">효창공원앞역 해링턴 플레이스 용산 리버뷰 청년안심주택 입주자 최초모집공고문(공공지원민간임대)을 붙임과 같이 게시합니다.&nbsp;</p>
-<p><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px; margin: 0px; padding: 0px; box-sizing: border-box;">자세한 내용은 첨부파일의 모집공고문을 확인하시기 바랍니다.</span></p>
-<p><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;"></span></p>
+		<div class="board_cont"><p style="padding: 0px; box-sizing: border-box;"><font color="#333333" face="NanumSquareOTF_ac" size="3"><span style="letter-spacing: -1px;">광운대역 현대프라힐스 청년안심주택 공공지원민간임대 입주자 추가모집공고를 게시합니다.&nbsp;</span></font></p>
+<p style="padding: 0px; box-sizing: border-box;"><font color="#333333" face="NanumSquareOTF_ac" size="3"><span style="letter-spacing: -1px;">자세한 내용은 첨부파일의 모집공고문을 확인하시기 바랍니다.</span></font><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">&nbsp;</span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">&nbsp;</span></p>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 18px;"></span></h2>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;"><b style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 20px;">[단지개요]</b></p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■단지명 : &nbsp;광운대역 현대프라힐스</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■주택위치 : 서울특별시 노원구 월계동 410-3 일원 (1호선 광운대역 3번 출구)</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■공급호수 : 총 275세대 중 금회 추가공급 공공지원민간임대 1세대 (일반공급 1세대)</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■사업주체 : 현대아산(주)</p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">■시공사 : 현대아산(주)</span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">&nbsp;</span></p>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 18px;"></span></h2>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 20px;">[공급일정]</span></h2>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■모집공고 : ‘26. 11. 19. (목)</p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="letter-spacing: -1px; font-family: nanumsquareotf_ac; font-size: medium; color: #ff00ff;"><b>■청약신청 : ‘26. 11. 23. (월) 00:00 ~ 23:00</b></span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">■서류심사 대상자 발표 : ‘26. 11. 25. (수) 16:00</span></p>
+<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">■당첨자 서류 제출(이메일) : ‘26. 11. 26. (목)</span></p>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-weight: normal;"><font color="#333333" face="NanumSquareOTF_ac" size="3">■계약체결 및 원본서류제출 : ‘26. 11. 30. (월) ~ 12. 04. (금)</font></span></h2>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-family: NanumSquareOTF_ac; font-size: medium; color: #000000;">&nbsp;</span></h2>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 18px;"></span></h2>
+<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 20px;">[청약신청]</span></h2>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; font-family: NanumSquareOTF_ac;"><span style="font-size: medium; color: #333333;">■ 청약신청 페이지 :&nbsp;</span><span style="color: #0000ff; font-size: medium;"><b><u><span style="font-size: 18px;"><a href="https://kws-hdprahills.co.kr" target="_blank" title="현대프라힐스 추가모집 신청">https://kws-hdprahills.co.kr</a></span></u></b></span></p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■ 문의전화 : 02-6264-6370</p>
+<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■ 운영시간 : 월~금 10:00~17:00 (점심시간 : 12:00~13:00)</p>
 <h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 18px;"></span></h2>
 <p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">&nbsp;</p>
-<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;"><b style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 20px;">[단지개요]</b></p>
-<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■단지명 : 해링턴 플레이스 용산 리버뷰</p>
-<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■주택위치 : 서울특별시 용산구 효창원로 80 (6호선, 경의중앙선 효창공원앞역 3번 출구)</p>
-<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■공급호수 : 총 988세대 중 공공지원민간임대 635세대 (특별공급 128세대, 일반공급 507세대)</p>
-<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■사업주체 : (주)이지스용산청년주택위탁관리부동산투자회사</p>
-<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■시공사 : 효성중공업(주)</p>
-<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">&nbsp;</p>
-<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 20px;">[공급일정]</span></h2>
-<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■모집공고 : ‘26. 11. 03. (화)</p>
-<p style="padding: 0px; box-sizing: border-box;"><span style="letter-spacing: -1px; font-family: nanumsquareotf_ac; font-size: medium; color: #ff00ff;"><b>■청약신청 : ‘26. 11. 12. (목) 00:00 ~ 11. 15. (일) 24:00</b></span></p>
-<p style="padding: 0px; box-sizing: border-box;"><span style="letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■서류심사 대상자 발표 : </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 11. 17. (화) 17:00</span></p>
-<p style="padding: 0px; box-sizing: border-box;"><span style="letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■당첨자 서류 제출(이메일) : </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 11. 18. (수)&nbsp;</span><span style="letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">~ 11. 19. (목)</span></p>
-<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">■세대 확인: </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 11. 20. (금) ~ 11. 22. (일)</span></p>
-<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">■계약체결: </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 11. 23. (월) ~ 11. 29. (일)</span></p>
-<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">■입주지정기간(예정) : </span><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">‘26. 12. 07. (월) ~ 27. 01. 15. (금)</span></p>
-<p style="padding: 0px; box-sizing: border-box;"><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">&nbsp;</span></p>
-<h2 style="margin: 0px; padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: nanumsquareotf_ac;"><span style="font-size: 20px;">[청약신청]&nbsp;</span></h2>
-<p style="padding: 0px; box-sizing: border-box;"><font color="#333333" face="NanumSquareOTF_ac"><span style="letter-spacing: -1px;"><font size="3">■ 청약신청 페이지 : </font><span style="font-size: 18px;"><b><u><span style="color: #0000ff;"><a href="https://yongsan2030.com" target="_blank" title="해링턴플레이스용산리버뷰 최초모집 신청"><span style="font-size: 18px;">https://yongsan2030.com</span></a></span></u></b></span></span></font></p>
-<p style="padding: 0px; box-sizing: border-box;"><font color="#333333" face="NanumSquareOTF_ac" size="3"><span style="letter-spacing: -1px;">■ 문의전화 : </span></font><span style="color: #333333; font-family: NanumSquareOTF_ac; font-size: medium; letter-spacing: -1px;">02-701-1090</span></p>
-<p style="padding: 0px; box-sizing: border-box; letter-spacing: -1px; color: #333333; font-family: NanumSquareOTF_ac; font-size: medium;">■ 운영시간 : 월~금 10:00~17:00 (점심시간 : 12:00~13:00)</p>
 </div>
-		<input type="hidden" name="optn1" id="optn1" value="2026-11-03">
+		<input type="hidden" name="optn1" id="optn1" value="2026-11-19">
 		<ul class="board_list">
 			<li class="next">
 			
 			
-				<p class="title"><strong>다음글</strong><a href="./view.do?optn1=2026-11-03&boardId=6719&menuNo=400008&pageIndex=&searchCondition=&searchKeyword=">[민간임대] 송정역 케이제이타워 최초모집공고</a></p>
-				<p class="date">2026-10-29</p>
+				<p class="title"><strong>다음글</strong><a href="./view.do?optn1=2026-11-19&boardId=6833&menuNo=400008&pageIndex=&searchCondition=&searchKeyword=">[민간임대] 돌곶이역 화랑어반트리움 최초모집공고</a></p>
+				<p class="date">2026-11-20</p>
 			
 			
 			
@@ -756,8 +757,8 @@ function doDel(){
 			<li class="prev">
 			
 			
-				<p class="title"><strong>이전글</strong><a href="./view.do?optn1=2026-11-03&boardId=6717&menuNo=400008&pageIndex=&searchCondition=&searchKeyword=">[민간임대] 연신내역 루미노816 추가모집공고</a></p>
-				<p class="date">2026-10-29</p>
+				<p class="title"><strong>이전글</strong><a href="./view.do?optn1=2026-11-19&boardId=6805&menuNo=400008&pageIndex=&searchCondition=&searchKeyword=">[민간임대] 동묘앞역 청계로벤하임 추가모집공고</a></p>
+				<p class="date">2026-11-17</p>
 			
 			
 			
@@ -796,4 +797,19 @@ function doDel(){
 	function preListen(file_url, file_name) {
 		var apiKey = "RBKLXXZDMUBCHNHOEKZTMG";
 		var cc = "sg_094";
-		var fileUrl = encodeURIComponent(window.location.protocol+"//"+window.locat
+		var fileUrl = encodeURIComponent(window.location.protocol+"//"+window.location.host+file_url);
+		var fileName = encodeURIComponent(file_name);
+		window.open("https://seoul.viewstory.net/voiceOverAjax.do?apikey={0}&cc={1}&url={2}&fileName={3}".format(apiKey, cc, fileUrl, fileName), "a", "width=1200, height=1000, left=100, top=50");
+	}
+	
+	
+		
+		
+		String.prototype.format = function() {
+		var formatted = this;
+		for( var arg in arguments ) {
+		formatted = formatted.replace("{" +arg + "}", arguments[arg]);}
+		return formatted;
+		};
+		
+		$('.board
